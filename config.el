@@ -1,8 +1,39 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
+;;;
+;;; TODO Markdown mode
+;;; TODO Polymode
+;;; TODO Helm (Ivy?) bibtex
+;;; TODO Org mode
+;;; TODO Snippets
+;;; TODO Fill function arguments
+;;; TODO Deadgrep
+;;; TODO dtrt-indent
+;;; TODO Smartparens slurp/barf
+;;; TODO Simpleclip
 
 ;; Place your private configuration here
 
+(setq user-full-name "Alexey Shiklomanov"
+      user-mail-address "alexey.shiklomanov@gmail.com")
+
 (setq doom-localleader-key "\\")
+
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups"))
+      delete-old-versions -1		; Don't delete old versions
+      version-control t			; Version control backups
+      make-backup-files t
+      vc-make-backup-files t		; Backup files even if they are version controlled
+      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))) ; Save file name changes
+
+;;  Related to bibtex references
+(defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
+  "Root directory for storing my bibliography.")
+(defvar ans/reference-dir-pdfs (file-name-as-directory (concat ans/reference-dir "pdfs"))
+  "Subdirectory containing PDF files of papers in my bibliography.")
+(defvar ans/reference-bibfile (concat ans/reference-dir "library.bib")
+  "Full path to my personal bibtex file.")
+(defvar ans/reference-notes (concat ans/reference-dir "notes.org")
+  "Full path to reference-related notes.")
 
 (map! (:map evil-window-map
         "o" #'ace-window
