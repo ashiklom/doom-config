@@ -119,7 +119,10 @@
 (after! persp-mode
   (persp-def-buffer-save/load
    :tag-symbol 'def-indirect-buffer
-   :predicate #'buffer-base-buffer
+   ;; :predicate #'buffer-base-buffer
+   :predicate (lambda (buf)
+                (and (buffer-base-buffer buf)
+                     (buffer-live-p buf)))
    :save-function (lambda (buf tag vars)
                     (list tag (buffer-name buf) vars
                           (buffer-name (buffer-base-buffer buf))))
