@@ -93,3 +93,19 @@
         (delete-file filename)
         (message "Deleted file %s" filename)
         (kill-buffer)))))
+
+;; Automatically commenting with "o/O" is sometimes useful, but usually just
+;; annoying. So, do it with "go/O", but not with regular "o/O".
+(defun ans/evil-open-below (count)
+  "`(evil-open-below COUNT)` without the extra advice that adds comments."
+  (interactive "p")
+  (evil-open-below count))
+(defun ans/evil-open-above (count)
+  "`(evil-open-below COUNT)` without the extra advice that adds comments."
+  (interactive "p")
+  (evil-open-above count))
+(map! :n "o" #'ans/evil-open-below
+      :n "O" #'ans/evil-open-above
+      :prefix "g"
+      :n "o" #'evil-open-below
+      :n "O" #'evil-open-above)
