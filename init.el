@@ -179,3 +179,40 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
+
+;; init.el
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((ess-r-package-dirs
+      ("R" . 1)
+      ("tests" . 1)
+      ("testthat" . 2)
+      ("analysis" . 1)
+      ("scratch" . 2)
+      ("scripts" . 2)
+      ("data-raw" . 1))
+     (ess-r-package-dirs
+      ("R" . 1)
+      ("tests" . 1)
+      ("testthat" . 2)
+      ("analysis" . 1)
+      ("scripts" . 2))
+     (ess-r-package-dirs
+      ("R" . 1)
+      ("tests" . 1)
+      ("testthat" . 2)
+      ("analysis" . 1)
+      ("scratch" . 2)
+      ("scripts" . 2))
+     (projectile-project-compilation-cmd . "make")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
