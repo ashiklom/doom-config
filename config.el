@@ -25,7 +25,7 @@
       vc-make-backup-files t		; Backup files even if they are version controlled
       auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))) ; Save file name changes
 
-(setq display-line-numbers nil)
+(setq display-line-numbers-type nil)
 
 ;;  Related to bibtex references
 (defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
