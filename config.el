@@ -44,6 +44,9 @@
         "_" #'evil-window-decrease-height
         "d" #'+workspace/close-window-or-workspace)
 
+      (:map doom-leader-map
+        :desc "Shell command" "!" #'shell-command)
+
       (:map doom-leader-project-map
         :desc "Find project file or buffer" "p" #'counsel-projectile
         :desc "Find file in project" "f" #'+ivy/projectile-find-file
