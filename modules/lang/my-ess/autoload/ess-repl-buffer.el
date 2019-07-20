@@ -1,4 +1,4 @@
-;;; lang/ess/autoload.el -*- lexical-binding: t; -*-
+;;; modules/lang/my-ess/autoload/ess-repl-buffer.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
 (defun +ess-repl-buffer (&optional start-args)
