@@ -1,7 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 ;;;
-;;; TODO Markdown mode
-;;; TODO Polymode
 ;;; TODO Helm (Ivy?) bibtex
 ;;; TODO Org mode
 ;;; TODO Snippets
@@ -109,6 +107,9 @@
       :prefix "g"
       :n "o" #'evil-open-below
       :n "O" #'evil-open-above)
+
+(def-package! markdown-mode
+  :mode ((rx ".Rmd" string-end) . gfm-mode))
 
 ;; Persp-mode bugfix
 ;; See issue https://github.com/hlissner/doom-emacs/issues/1525
