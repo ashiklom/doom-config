@@ -1,7 +1,4 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
-;;;
-;;; TODO Snippets
-;;; TODO dtrt-indent
 
 ;; Place your private configuration here
 
@@ -306,3 +303,8 @@
           (if (projectile-project-p) (projectile-project-root) (deadgrep--project-root)))))
 
 (map! :map doom-leader-search-map :desc "Deadgrep" "r" #'deadgrep)
+
+(def-package! dtrt-indent
+  :config
+  (setq dtrt-indent-hook-mapping-list (add-to-list 'dtrt-indent-hook-mapping-list
+                                                   '(ess-r-mode default ess-indent-offset))))
