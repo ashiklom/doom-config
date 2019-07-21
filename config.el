@@ -301,3 +301,12 @@
         (end (save-excursion (sp-end-of-sexp) (+ (point) 1))))
     (indent-region start end)))
 
+;; Deadgrep
+(def-package! deadgrep
+  :commands (deadgrep)
+  :config
+  (setq deadgrep-project-root-function
+        (lambda ()
+          (if (projectile-project-p) (projectile-project-root) (deadgrep--project-root)))))
+
+(map! :map doom-leader-search-map :desc "Deadgrep" "r" #'deadgrep)

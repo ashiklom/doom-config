@@ -7,3 +7,4 @@
 ;; (package! builtin-package :disable t)
 
 (package! fill-function-arguments :recipe (:fetcher github :repo "davidshepherd7/fill-function-arguments"))
+(package! deadgrep)
