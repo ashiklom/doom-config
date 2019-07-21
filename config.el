@@ -308,3 +308,9 @@
   :config
   (setq dtrt-indent-hook-mapping-list (add-to-list 'dtrt-indent-hook-mapping-list
                                                    '(ess-r-mode default ess-indent-offset))))
+
+;; Spell checking -- try aspell, and fall back to ispell
+(cond
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell"
+        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US"))))
