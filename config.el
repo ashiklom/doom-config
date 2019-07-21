@@ -1,10 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 ;;;
 ;;; TODO Snippets
-;;; TODO Deadgrep
 ;;; TODO dtrt-indent
-;;; TODO Smartparens slurp/barf
-;;; TODO Simpleclip
 
 ;; Place your private configuration here
 
@@ -45,11 +42,10 @@
         :desc "Switch workspace" "TAB" #'+workspace/switch-to
         :desc "Show tab bar" "." #'+workspace/display)
 
-      ;; (:map company-active-map
-      ;;   :i "C-l" #'+company/complete)
-
       :i "C-l" #'+company/complete
-      :n "g RET" #'eval-defun)
+      :n "g RET" #'eval-defun
+
+      :i "C-0" (lambda () (interactive) (sp-slurp-hybrid-sexp) (sp-end-of-sexp)))
 
 
 ;; Some custom functions
