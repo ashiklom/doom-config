@@ -1,7 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 ;;;
 ;;; TODO Snippets
-;;; TODO Fill function arguments
 ;;; TODO Deadgrep
 ;;; TODO dtrt-indent
 ;;; TODO Smartparens slurp/barf
@@ -289,3 +288,16 @@
                       (push (cons buf-name base-buf-name)
                             +workspaces--indirect-buffers-to-restore)
                       nil))))
+
+(def-package! fill-function-arguments
+  :commands (fill-function-arguments-dwim))
+(map! :desc "Fill function arguments" :n "g [" #'ans/fill-function-arguements-and-indent)
+
+(defun ans/fill-function-arguements-and-indent ()
+  "Fill function arguments and indent."
+  (interactive)
+  (fill-function-arguments-dwim)
+  (let ((start (save-excursion (sp-beginning-of-sexp) (point)))
+        (end (save-excursion (sp-end-of-sexp) (+ (point) 1))))
+    (indent-region start end)))
+
