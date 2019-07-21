@@ -56,48 +56,50 @@
           [up]       #'comint-next-input
           [down]     #'comint-previous-input)
 
-        :localleader
-        :map ess-mode-map
-        "r f" #'R
-        "r q" #'ess-quit
-        "l" #'ans/r-send-line
-        "d" #'ans/r-send-line-and-down
-        "f f" #'ans/r-send-function-or-paragraph
-        "p p" #'ans/r-send-paragraph
-        "p d" #'ans/r-send-paragraph-and-down
-        "a a" #'ans/r-send-buffer
-        "a d" #'ans/r-send-current-line-to-end
-        "a s" #'ans/r-send-beginning-to-current-line
-        "r p" #'ans/ess-eval-symbol
-        "r g" #'ans/ess-glimpse-symbol
-        "r s" #'ans/ess-str
-        "r z" #'ans/ess-symbol-size
-        "r n" #'ans/ess-names
-        "r H" #'ans/ess-head
-        "r T" #'ans/ess-tail
-        "k r" #'ans/rmarkdown-render
-        "X " #'ess-interrupt
-        "0" #'ans/ess-dev-off
-        "!" #'ans/ess-toggle-debug
-        "z p" #'ans/ess-usethis-package
-        "r l" #'ans/ess-drake-loadd
-        "r d" #'ans/ess-drake-readd
-        "r b" #'ans/ess-drake-build-target
-        "r i" (lambda (arg) (interactive "P") (ans/import/add-to-imports arg) (ans/import/source-imports))
-        "," #'ans/split-path-string
-        "$" #'ans/ess-dollar-to-bracket
-        "<backspace>" #'ans/ess-rm
-        "b t" #'ans/ess-trace-back
-        "b T" #'ans/ess-last-error
-
-        :v "s s" #'ans/r-send-region-source
-        :v "s i" #'ans/ess-plot-imgur
-        :v "r x" #'ans/ess-reprex-region
-        :v "=" #'ans/ess-tidy-region
-
-        :i "_" #'self-insert-command
-        :i "M--" #'ess-insert-assign
-        :i "M-m" (lambda() (interactive)(insert " %>%"))
+        (:map ess-mode-map
+          (:localleader
+            :n "r f" #'R
+            :n "r q" #'ess-quit
+            :n "l" #'ans/r-send-line
+            :n "d" #'ans/r-send-line-and-down
+            :n "f f" #'ans/r-send-function-or-paragraph
+            :n "p p" #'ans/r-send-paragraph
+            :n "p d" #'ans/r-send-paragraph-and-down
+            :n "a a" #'ans/r-send-buffer
+            :n "a d" #'ans/r-send-current-line-to-end
+            :n "a s" #'ans/r-send-beginning-to-current-line
+            :n "r p" #'ans/ess-eval-symbol
+            :n "r g" #'ans/ess-glimpse-symbol
+            :n "r s" #'ans/ess-str
+            :n "r z" #'ans/ess-symbol-size
+            :n "r n" #'ans/ess-names
+            :n "r H" #'ans/ess-head
+            :n "r T" #'ans/ess-tail
+            :n "k r" #'ans/rmarkdown-render
+            :n "X " #'ess-interrupt
+            :n "0" #'ans/ess-dev-off
+            :n "!" #'ans/ess-toggle-debug
+            :n "z p" #'ans/ess-usethis-package
+            :n "r l" #'ans/ess-drake-loadd
+            :n "r d" #'ans/ess-drake-readd
+            :n "r b" #'ans/ess-drake-build-target
+            :n "r i" (lambda (arg) (interactive "P") (ans/import/add-to-imports arg) (ans/import/source-imports))
+            :n "," #'ans/split-path-string
+            :n "$" #'ans/ess-dollar-to-bracket
+            :n "<backspace>" #'ans/ess-rm
+            :n "b t" #'ans/ess-trace-back
+            :n "b T" #'ans/ess-last-error
+            :n "h" 'ess-doc-map
+            :n "x" 'ess-extra-map
+            :n "v" 'ess-r-package-dev-map
+            :n "e" 'ess-dev-map
+            :v "s s" #'ans/r-send-region-source
+            :v "s i" #'ans/ess-plot-imgur
+            :v "r x" #'ans/ess-reprex-region
+            :v "=" #'ans/ess-tidy-region)
+          :i "_" #'self-insert-command
+          :i "M--" #'ess-insert-assign
+          :i "M-m" (lambda() (interactive)(insert " %>%")))
 
         ;; Old bindings
         ;; "," #'ess-eval-region-or-function-or-paragraph-and-step
@@ -113,11 +115,6 @@
         ;; "R" #'ess-eval-region-and-go
         ;; "F" #'ess-eval-function-and-go
         ;; "f" #'ess-eval-function
-        ;; predefined keymaps
-        "h" 'ess-doc-map
-        "x" 'ess-extra-map
-        "v" 'ess-r-package-dev-map
-        "e" 'ess-dev-map
         ;; noweb
         ;; :prefix "c"
         ;; "C" #'ess-eval-chunk-and-go
