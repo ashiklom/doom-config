@@ -70,6 +70,7 @@
 
        :tools
        ;;ansible
+       bibtex              ; managing references
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker

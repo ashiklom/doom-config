@@ -1,6 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 ;;;
-;;; TODO Helm (Ivy?) bibtex
 ;;; TODO Snippets
 ;;; TODO Fill function arguments
 ;;; TODO Deadgrep
@@ -23,16 +22,6 @@
       auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))) ; Save file name changes
 
 (setq display-line-numbers-type nil)
-
-;;  Related to bibtex references
-(defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
-  "Root directory for storing my bibliography.")
-(defvar ans/reference-dir-pdfs (file-name-as-directory (concat ans/reference-dir "pdfs"))
-  "Subdirectory containing PDF files of papers in my bibliography.")
-(defvar ans/reference-bibfile (concat ans/reference-dir "library.bib")
-  "Full path to my personal bibtex file.")
-(defvar ans/reference-notes (concat ans/reference-dir "notes.org")
-  "Full path to reference-related notes.")
 
 (map! (:map evil-window-map
         "o" #'ace-window
@@ -274,6 +263,13 @@
         :desc "Punch in" "+" #'ans/punch-in
         :desc "Punch out" "-" #'ans/punch-out
         :desc "Go-to" "g" #'org-clock-goto))
+
+;;  Related to bibtex references
+(defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
+  "Root directory for storing my bibliography.")
+(setq bibtex-completion-library-path (file-name-as-directory (concat ans/reference-dir "pdfs")))
+(setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
+(setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
 
 ;; Persp-mode bugfix
 ;; See issue https://github.com/hlissner/doom-emacs/issues/1525
