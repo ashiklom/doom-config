@@ -95,6 +95,9 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode))
 
 ;; Org mode configuration
+
+(remove-hook 'org-mode-hook #'auto-fill-mode)
+
 (setq org-agenda-files '("~/Dropbox/Notes/" "~/Dropbox/references/notes.org")
       org-directory "~/Dropbox/Notes"
       org-tags-exclude-from-inheritance '("_project" "_organize")
