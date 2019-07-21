@@ -45,8 +45,8 @@
       :i "C-l" #'+company/complete
       :n "g RET" #'eval-defun
 
-      :i "C-0" (lambda () (interactive) (sp-slurp-hybrid-sexp) (sp-end-of-sexp)))
-
+      :i "C-0" (lambda () (interactive) (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
+      :i "C-s" (lambda () (interactive) (upcase-word -1)))
 
 ;; Some custom functions
 (defun rename-this-buffer-and-file ()
