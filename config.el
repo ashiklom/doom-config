@@ -1,5 +1,10 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+;; TODO magit -- Fix forge ghub authentication
+;; TODO ESS -- Don't focus R buffer when launching
+;; TODO ESS -- Immediately point current buffer to new R buffer
+;; TODO Org -- Wrap configuration (def-package!) so it loads at the right time
+
 ;; Place your private configuration here
 
 (setq user-full-name "Alexey Shiklomanov"
