@@ -4,6 +4,7 @@
 ;; TODO ESS -- Don't focus R buffer when launching
 ;; TODO ESS -- Immediately point current buffer to new R buffer
 ;; TODO Org -- Wrap configuration (def-package!) so it loads at the right time
+;; TODO markdown -- Set up correct citation format. May need to configure org-ref?
 
 ;; Place your private configuration here
 
