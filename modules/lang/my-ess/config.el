@@ -16,7 +16,8 @@
         ess-ask-for-ess-directory nil
         ess-directory-function #'ans-r-file-here
         ess-nuke-trailing-whitespace-p t
-        ess-default-style 'RStudio
+        ess-style 'RStudio
+        ess-fill-calls-newlines t
         ess-eval-visibly 'nowait
         ess-history-directory (expand-file-name "ess-history/" doom-cache-dir)
         ess-roxy-str "#'"
@@ -56,7 +57,7 @@
           [up]       #'comint-next-input
           [down]     #'comint-previous-input)
 
-        (:map ess-mode-map
+        (:map (ess-mode-map ess-r-mode-map)
           (:localleader
             :n "r f" #'R
             :n "r q" #'ess-quit
