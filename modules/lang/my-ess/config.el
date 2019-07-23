@@ -12,6 +12,7 @@
     (rx string-start "*" "R" (any "*" ":"))
     :quit #'ans/ess-close-if-not-running
     :size 0.3
+    :slot 2
     :select nil)
   (setq ess-offset-continued 'straight
         ess-use-flymake (not (featurep! :tools flycheck))
