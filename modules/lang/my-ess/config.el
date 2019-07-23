@@ -10,9 +10,11 @@
   (add-hook 'ess-mode-hook 'electric-pair-mode)
   (set-popup-rule!
     (rx string-start "*" "R" (any "*" ":"))
-    :quit #'ans/ess-close-if-not-running
+    ;; :quit #'ans/ess-close-if-not-running
+    :quit nil
     :size 0.3
     :slot 2
+    :vslot 2
     :select nil)
   (setq ess-offset-continued 'straight
         ess-use-flymake (not (featurep! :tools flycheck))
