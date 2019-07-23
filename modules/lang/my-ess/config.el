@@ -11,7 +11,8 @@
   (set-popup-rule!
     (rx string-start "*" "R" (any "*" ":"))
     :quit #'ans/ess-close-if-not-running
-    :size 0.3 :select nil)
+    :size 0.3
+    :select nil)
   (setq ess-offset-continued 'straight
         ess-use-flymake (not (featurep! :tools flycheck))
         ess-ask-for-ess-directory nil
@@ -60,7 +61,7 @@
 
         (:map (ess-mode-map ess-r-mode-map)
           (:localleader
-            :n "r f" #'R
+            :n "r f" #'ess-switch-process
             :n "r q" #'ess-quit
             :n "l" #'ans/r-send-line
             :n "d" #'ans/r-send-line-and-down
