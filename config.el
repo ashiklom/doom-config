@@ -1,10 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; TODO magit -- Fix forge ghub authentication
-;; TODO ESS -- Don't focus R buffer when launching
-;; TODO ESS -- Immediately point current buffer to new R buffer
 ;; TODO markdown -- Set up correct citation format. May need to configure org-ref?
-;; TODO Compilation buffer popup
 
 ;; Place your private configuration here
 
@@ -308,8 +305,9 @@
   (setq dtrt-indent-hook-mapping-list (add-to-list 'dtrt-indent-hook-mapping-list
                                                    '(ess-r-mode default ess-indent-offset))))
 
-;; Spell checking -- try aspell, and fall back to ispell
-(cond
- ((executable-find "aspell")
-  (setq ispell-program-name "aspell"
-        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US"))))
+;; Don't quit the compilation buffer if it's still running
+(set-popup-rule!
+  (rx string-start (zero-or-more blank)
+      (zero-or-more blank) "compilation")
+  :select nil
+  :quit (lambda (window) (not compilation-in-progress)))
