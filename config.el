@@ -310,7 +310,7 @@
   (rx string-start (zero-or-more blank)
       (zero-or-more blank) "compilation")
   :select nil
-  :quit (lambda (window) (not compilation-in-progress)))
+  :quit (lambda (_window) (not compilation-in-progress)))
 
 ;; Automatically soft-wrap lines in text modes
 (add-hook! :append 'text-mode-hook '(visual-line-mode  turn-off-auto-fill))
