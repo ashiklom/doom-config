@@ -18,17 +18,14 @@
 (defun ans/ess-eval-symbol ()
   "Evaluate (usually print) the symbol at point."
   (interactive)
-  (save-excursion
-    (er/mark-symbol)
-    (ess-eval-region (point) (mark) nil)
-    (deactivate-mark)))
+  (ans/ess-do-with-symbol-at-point "%s"))
 
 ;;;###autoload
 (defun ans/ess-do-with-symbol-at-point (command-string)
   "Run R expression in COMMAND-STRING using symbol-at-point."
   (ess-send-string
    (ess-get-process)
-   (format command-string (symbol-at-point))))
+   (format command-string (ess-symbol-at-point))))
 
 ;;;###autoload
 (defun ans/ess-reprex-region (start end venue)
