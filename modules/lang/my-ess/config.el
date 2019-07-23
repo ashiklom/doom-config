@@ -7,6 +7,7 @@
   (unless (featurep! :lang julia)
     (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode)))
   :config
+  (add-hook 'ess-mode-hook 'electric-pair-mode)
   (set-popup-rule!
     (rx string-start "*" "R" (any "*" ":"))
     :quit #'ans/ess-close-if-not-running
