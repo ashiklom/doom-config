@@ -308,7 +308,7 @@
 ;; Don't quit the compilation buffer if it's still running
 (set-popup-rule!
   (rx string-start (zero-or-more blank)
-      (zero-or-more blank) "compilation")
+      "*" (zero-or-more blank) "compilation")
   :select nil
   :quit (lambda (_window) (not compilation-in-progress)))
 
