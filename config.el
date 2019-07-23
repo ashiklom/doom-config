@@ -311,3 +311,7 @@
       (zero-or-more blank) "compilation")
   :select nil
   :quit (lambda (window) (not compilation-in-progress)))
+
+;; Automatically soft-wrap lines in text modes
+(add-hook! :append 'text-mode-hook '(visual-line-mode  turn-off-auto-fill))
+(remove-hook! 'markdown-mode-hook 'auto-fill-mode)
