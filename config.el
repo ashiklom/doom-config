@@ -262,6 +262,9 @@
 (setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
 (setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
 
+;; Diary -- mostly, to prevent errors about this file not existing
+(setq diary-file "~/Dropbox/Notes/journal/diary")
+
 ;; Persp-mode bugfix
 ;; See issue https://github.com/hlissner/doom-emacs/issues/1525
 (after! persp-mode
