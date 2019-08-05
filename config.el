@@ -250,7 +250,10 @@
         (:prefix-map ("c" . "clock")
           :desc "Punch in" "+" #'ans/punch-in
           :desc "Punch out" "-" #'ans/punch-out
-          :desc "Go-to" "g" #'org-clock-goto)))
+          :desc "Go-to" "g" #'org-clock-goto))
+
+  (map! :map doom-leader-notes-map
+        :desc "Reveal" "TAB" #'org-reveal))
 
 ;;  Related to bibtex references
 (defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
