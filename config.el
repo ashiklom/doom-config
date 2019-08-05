@@ -246,11 +246,17 @@
     (when (org-clock-is-active)
       (org-clock-out)))
 
+  (defun ans/org-clock-history ()
+    "Clock into task based on history."
+    (interactive)
+    (org-clock-in-last '(4)))
+
   (map! :map doom-leader-open-map
         (:prefix-map ("c" . "clock")
           :desc "Punch in" "+" #'ans/punch-in
           :desc "Punch out" "-" #'ans/punch-out
-          :desc "Go-to" "g" #'org-clock-goto))
+          :desc "Go-to" "g" #'org-clock-goto
+          :desc "History" "h" #'ans/org-clock-history))
 
   (map! :map doom-leader-notes-map
         :desc "Reveal" "TAB" #'org-reveal))
