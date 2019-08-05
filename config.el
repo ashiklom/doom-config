@@ -259,7 +259,13 @@
           :desc "History" "h" #'ans/org-clock-history))
 
   (map! :map doom-leader-notes-map
-        :desc "Reveal" "TAB" #'org-reveal))
+        :desc "Reveal" "TAB" #'org-reveal)
+
+  (map! :map org-agenda-mode-map
+        :m :desc "Log mode" "@l" #'org-agenda-log-mode
+        :m :desc "Day view" "@d" #'org-agenda-day-view
+        :m :desc "Week view" "@w" #'org-agenda-week-view
+        :m :desc "Month view" "@m" #'org-agenda-month-view))
 
 ;;  Related to bibtex references
 (defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
