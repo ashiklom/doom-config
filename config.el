@@ -46,7 +46,9 @@
       :n "g RET" #'eval-defun
 
       :i "C-0" (lambda () (interactive) (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
-      :i "C-s" (lambda () (interactive) (upcase-word -1)))
+      :i "C-s" (lambda () (interactive) (upcase-word -1))
+
+      :i "s-k" #'evil-insert-digraph)
 
 ;; Some custom functions
 (defun rename-this-buffer-and-file ()
