@@ -274,6 +274,8 @@
 (setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
 (setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
 
+(setq citeproc-org-locales-dir "~/.config/csl-locales")
+
 ;; Diary -- mostly, to prevent errors about this file not existing
 (setq diary-file "~/Dropbox/Notes/journal/diary")
 

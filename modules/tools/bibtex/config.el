@@ -51,6 +51,15 @@ one that ships with helm-bibtex, except that
           :desc "Edit notes" "n" (lambda () (interactive) (bibtex-completion-edit-notes (list (bibtex-completion-key-at-point))))
           :desc "Open URL" "u" (lambda () (interactive (bibtex-completion-open-url-or-doi (list (bibtex-completion-key-at-point))))))))
 
+(def-package! org-ref
+  :after org)
+
+(def-package! citeproc-org
+  :after org
+  :commands citeproc-org-setup
+  :init
+  (setq citeproc-org-ignore-backends nil))
+
 ;; Org-ref configuration from my vanilla config.
 
 ;; (def-package! org-ref
