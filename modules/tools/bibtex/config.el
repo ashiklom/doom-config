@@ -1,6 +1,6 @@
 ;;; tools/bibtex/config.el -*- lexical-binding: t; -*-
 
-(def-package! ivy-bibtex
+(def-package! helm-bibtex
   :init
   (setq bibtex-autokey-name-case-convert-function 'downcase
         bibtex-autokey-name-year-separator "_"
