@@ -274,6 +274,8 @@
 (setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
 (setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
 
+;; CSL locale files. If this doesn't exist, clone them from:
+;; https://github.com/citation-style-language/locales
 (setq citeproc-org-locales-dir "~/.config/csl-locales")
 
 ;; Diary -- mostly, to prevent errors about this file not existing
