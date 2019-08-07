@@ -258,10 +258,12 @@
           :desc "Punch in" "+" #'ans/punch-in
           :desc "Punch out" "-" #'ans/punch-out
           :desc "Go-to" "g" #'org-clock-goto
-          :desc "History" "h" #'ans/org-clock-history))
+          :desc "History" "h" #'ans/org-clock-history
+          :desc "Clock out" "DEL" #'org-clock-out))
 
   (map! :map doom-leader-notes-map
-        :desc "Reveal" "TAB" #'org-reveal)
+        :desc "Reveal" "TAB" #'org-reveal
+        :desc "Ivy-bibtex" "b" #'ivy-bibtex)
 
   (map! :map org-agenda-mode-map
         :m :desc "Log mode" "@l" #'org-agenda-log-mode
