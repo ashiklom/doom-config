@@ -9,3 +9,4 @@
 (package! fill-function-arguments :recipe (:fetcher github :repo "davidshepherd7/fill-function-arguments"))
 (package! deadgrep)
 (package! dtrt-indent)
+(package! pandoc-mode)

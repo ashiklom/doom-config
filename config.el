@@ -345,3 +345,6 @@
 ;; Automatically soft-wrap lines in text modes
 (add-hook! :append 'text-mode-hook '(visual-line-mode  turn-off-auto-fill))
 (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
+
+(def-package! pandoc-mode
+  :hook ((markdown-mode gfm-mode poly-markdown-mode) . pandoc-mode))
