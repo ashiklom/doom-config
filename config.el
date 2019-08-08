@@ -277,6 +277,8 @@
 (setq bibtex-completion-library-path (file-name-as-directory (concat ans/reference-dir "pdfs")))
 (setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
 (setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
+(setq org-ref-bibliography-files (list bibtex-completion-bibliography))
+(setq org-ref-default-bibliography (car org-ref-bibliography-files))
 
 ;; CSL locale files. If this doesn't exist, clone them from:
 ;; https://github.com/citation-style-language/locales
