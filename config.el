@@ -269,7 +269,10 @@
         :m :desc "Log mode" "@l" #'org-agenda-log-mode
         :m :desc "Day view" "@d" #'org-agenda-day-view
         :m :desc "Week view" "@w" #'org-agenda-week-view
-        :m :desc "Month view" "@m" #'org-agenda-month-view))
+        :m :desc "Month view" "@m" #'org-agenda-month-view)
+
+  (map! :map evil-org-mode-map
+        :n "z n" #'org-toggle-narrow-to-subtree))
 
 ;;  Related to bibtex references
 (defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
