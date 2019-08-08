@@ -49,7 +49,11 @@ one that ships with helm-bibtex, except that
           :desc "Insert DOI from clipboard" "I" (lambda () (interactive) (doi-insert-bibtex (x-get-clipboard)))
           :desc "Format entry" "l" (lambda () (interactive) (bibtex-clean-entry 4))
           :desc "Edit notes" "n" (lambda () (interactive) (bibtex-completion-edit-notes (list (bibtex-completion-key-at-point))))
-          :desc "Open URL" "u" (lambda () (interactive (bibtex-completion-open-url-or-doi (list (bibtex-completion-key-at-point)))))))
+          :desc "Open URL" "u" (lambda () (interactive (bibtex-completion-open-url-or-doi (list (bibtex-completion-key-at-point))))))
+        (:map org-mode-map
+          :localleader
+          (:prefix-map ("\\" . "org-ref")
+            :desc "URL" "u" #'org-ref-open-url-at-point)))
   ;; Helm customizations
   (defun ans/hsplit-frame ()
     "Split window entirely below the current frame."
