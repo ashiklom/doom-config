@@ -280,6 +280,7 @@
 (setq bibtex-completion-library-path (file-name-as-directory (concat ans/reference-dir "pdfs")))
 (setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
 (setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
+(setq bibtex-autokey-titleword-length 15)
 (setq org-ref-default-bibliography (list bibtex-completion-bibliography))
 
 ;; CSL locale files. If this doesn't exist, clone them from:
