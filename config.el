@@ -1,7 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; TODO markdown -- Set up correct citation format. May need to configure org-ref?
-
 ;; Place your private configuration here
 
 (setq user-full-name "Alexey Shiklomanov"
