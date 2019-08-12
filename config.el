@@ -1,6 +1,5 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-;; TODO magit -- Fix forge ghub authentication
 ;; TODO markdown -- Set up correct citation format. May need to configure org-ref?
 
 ;; Place your private configuration here
