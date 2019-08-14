@@ -355,3 +355,15 @@
   :config
   (map! (:map doom-leader-map
           "SPC" evilem-map)))
+
+;; Override counsel-org-capture. For some reason, just mapping directly fails.
+(defun ans/org-capture ()
+  "Just org-capture. No counsel."
+  (interactive)
+  (require 'org-capture)
+  (org-capture))
+
+(map! (:map doom-leader-map
+        :desc "Org-capture" "X" #'ans/org-capture)
+      (:map doom-leader-notes-map
+        :desc "Org-capture" "c" #'ans/org-capture))
