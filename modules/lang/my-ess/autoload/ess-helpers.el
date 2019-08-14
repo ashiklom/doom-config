@@ -201,3 +201,24 @@
     "t <- tryCatch(setwd(my_dir), error = function(e) NULL);"
     "cat(here::here())"
     "\"")))
+
+;;;###autoload
+(defun ans/beginning-of-pipe-or-eol ()
+  "Find point position of end of line or beginning of pipe."
+  (if (search-forward "%>%" (line-end-position) t)
+      (goto-char (match-beginning 0))
+    (end-of-line)))
+
+;;;###autoload
+(defun ans/ess-eval-pipe-through-line ()
+  "Eval from beginning of paragraph to this line's pipe, or if no pipe, end of paragraph."
+  (interactive)
+  (save-excursion
+    (let ((end (progn
+                 (ans/beginning-of-pipe-or-eol)
+                 (point)))
+          (beg (progn
+                 (backward-paragraph)
+                 (ess-skip-blanks-forward 'multiline)
+                 (point))))
+      (ans/r-send-region-source beg end))))

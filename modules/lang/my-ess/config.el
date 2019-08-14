@@ -71,6 +71,7 @@
             :n "f f" #'ans/r-send-function-or-paragraph
             :n "p p" #'ans/r-send-paragraph
             :n "p d" #'ans/r-send-paragraph-and-down
+            :n "p l" #'ans/ess-eval-pipe-through-line
             :n "a a" #'ans/r-send-buffer
             :n "a d" #'ans/r-send-current-line-to-end
             :n "a s" #'ans/r-send-beginning-to-current-line
