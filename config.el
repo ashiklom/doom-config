@@ -367,3 +367,12 @@
         :desc "Org-capture" "X" #'ans/org-capture)
       (:map doom-leader-notes-map
         :desc "Org-capture" "c" #'ans/org-capture))
+
+(map! (:map doom-leader-map
+        "x" nil
+        (:prefix-map ("x" . "scratch")
+          :desc "Fundamental" "x" #'doom/open-scratch-buffer
+          :desc "R" "r" (lambda () (interactive) (doom/open-scratch-buffer) (R-mode))
+          :desc "Lisp interaction" "l" (lambda () (interactive) (doom/open-scratch-buffer) (lisp-interaction-mode))
+          :desc "Python" "p" (lambda () (interactive) (doom/open-scratch-buffer) (python-mode))
+          :desc "Bash" "b" (lambda () (interactive) (doom/open-scratch-buffer) (sh-mode)))))
