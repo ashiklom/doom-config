@@ -346,3 +346,12 @@
 
 (def-package! pandoc-mode
   :hook ((markdown-mode gfm-mode poly-markdown-mode) . pandoc-mode))
+
+;; Easymotion
+;; TODO Replace with #'+evil/easymotion once
+;; https://github.com/hlissner/doom-emacs/issues/1672 is addressed
+(def-package! evil-easymotion
+  :demand t
+  :config
+  (map! (:map doom-leader-map
+          "SPC" evilem-map)))
