@@ -32,7 +32,8 @@
           ("param" . "")
           ("return" . "")
           ("author" . "Alexey Shiklomanov"))
-        inferior-R-args "--no-save --no-restore")
+        inferior-R-args "--no-save --no-restore"
+        comint-move-point-for-output t)
 
   (setf (alist-get 'ess-fl-keyword:fun-calls ess-R-font-lock-keywords) t)
 
@@ -66,6 +67,13 @@
           (:localleader
             :n "r f" #'ess-switch-process
             :n "r q" #'ess-quit
+            ;; Built-in versions of these commands
+            ;; :n "l" #'ess-eval-line
+            ;; :n "d" #'ess-eval-line-and-step
+            ;; :n "ff" #'ess-eval-function-or-paragraph
+            ;; :n "pp" #'ess-eval-paragraph
+            ;; :n "pd" #'ess-eval-paragraph-and-step
+            ;; :n "aa" #'ess-eval-buffer
             :n "l" #'ans/r-send-line
             :n "d" #'ans/r-send-line-and-down
             :n "f f" #'ans/r-send-function-or-paragraph
