@@ -2,7 +2,7 @@
 ;;; tools/bibtex/packages.el
 
 (package! helm-bibtex)
-;;(package! helm-bibtex :recipe (:fetcher github :repo "ashiklom/helm-bibtex" :branch "author-abbrev"))
+;;(package! helm-bibtex :recipe (:host github :repo "ashiklom/helm-bibtex" :branch "author-abbrev"))
 (package! org-ref)
 (package! citeproc)
-(package! citeproc-org :recipe (:fetcher github :repo "andras-simonyi/citeproc-org"))
+(package! citeproc-org :recipe (:host github :repo "andras-simonyi/citeproc-org"))
