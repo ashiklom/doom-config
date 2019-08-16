@@ -341,7 +341,7 @@
   :quit (lambda (_window) (not compilation-in-progress)))
 
 ;; Automatically soft-wrap lines in text modes
-(add-hook! :append 'text-mode-hook '(visual-line-mode  turn-off-auto-fill))
+(add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))
 (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
 
 (use-package! pandoc-mode
