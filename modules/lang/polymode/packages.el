@@ -3,4 +3,4 @@
 
 (package! polymode)
 (package! poly-markdown)
-(package! fence-edit :recipe (:fetcher github :repo "aaronbieber/fence-edit.el"))
+(package! fence-edit :recipe (:host github :repo "aaronbieber/fence-edit.el"))
