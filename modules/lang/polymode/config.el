@@ -1,7 +1,7 @@
 ;;; lang/polymode/config.el -*- lexical-binding: t; -*-
 
-(def-package! polymode)
-(def-package! poly-markdown
+(use-package! polymode)
+(use-package! poly-markdown
   :commands (poly-markdown-mode)
   :config
   (map! :map poly-markdown-mode-map
@@ -11,7 +11,7 @@
         :n "`" #'ans/chunk-hydra/body
         :i "C-'" #'ans/chunk-hydra/body))
 
-(def-package! fence-edit
+(use-package! fence-edit
   :config
   (add-to-list 'fence-edit-blocks '("^```{r.*}" "^```$" R))
   (add-to-list 'fence-edit-blocks '("^```{tikz.*}" "^```$" latex))
@@ -23,7 +23,7 @@
           "C-c" #'fence-edit-exit
           "C-k" #'fence-edit-abort)))
 
-(def-package! markdown-mode
+(use-package! markdown-mode
   :config
   (map! :map markdown-mode-map
         :localleader

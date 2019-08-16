@@ -1,6 +1,6 @@
 ;;; tools/bibtex/config.el -*- lexical-binding: t; -*-
 
-(def-package! helm-bibtex
+(use-package! helm-bibtex
   :init
   (setq bibtex-autokey-name-case-convert-function 'downcase
         bibtex-autokey-name-year-separator "_"
@@ -70,10 +70,10 @@ one that ships with helm-bibtex, except that
           "TAB" #'helm-execute-persistent-action
           "C-z" #'helm-select-action)))
 
-(def-package! org-ref
+(use-package! org-ref
   :after org)
 
-(def-package! citeproc-org
+(use-package! citeproc-org
   :after org
   :commands citeproc-org-setup
   :init
@@ -81,7 +81,7 @@ one that ships with helm-bibtex, except that
 
 ;; Org-ref configuration from my vanilla config.
 
-;; (def-package! org-ref
+;; (use-package! org-ref
 ;;   :init
 ;;   (setq org-ref-bibliography-notes ans/reference-notes
 ;;         reftex-default-bibliography `(,ans/reference-bibfile)
@@ -120,7 +120,7 @@ one that ships with helm-bibtex, except that
 ;;     "d" 'doi-insert-bibtex
 ;;     "D" '(lambda () (interactive) (doi-insert-bibtex (simpleclip-get-contents)))))
 
-;; (def-package! helm-bibtex
+;; (use-package! helm-bibtex
 ;;   :after org-ref
 ;;   :init
 ;;   (setq bibtex-completion-bibliography ans/reference-bibfile

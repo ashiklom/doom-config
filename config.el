@@ -93,10 +93,10 @@
       :n "o" #'evil-open-below
       :n "O" #'evil-open-above)
 
-(def-package! markdown-mode
+(use-package! markdown-mode
   :mode ((rx ".Rmd" string-end) . gfm-mode))
 
-(def-package! org
+(use-package! org
   :init
   (defvar ans/organization-task-id "b86713a1-f9db-47c5-860f-6a2aecfec6c9")
   (setq ans/hide-scheduled-tasks t)
@@ -306,7 +306,7 @@
                             +workspaces--indirect-buffers-to-restore)
                       nil))))
 
-(def-package! fill-function-arguments
+(use-package! fill-function-arguments
   :commands (fill-function-arguments-dwim))
 (map! :desc "Fill function arguments" :n "g [" #'ans/fill-function-arguements-and-indent)
 
@@ -319,7 +319,7 @@
     (indent-region start end)))
 
 ;; Deadgrep
-(def-package! deadgrep
+(use-package! deadgrep
   :commands (deadgrep)
   :config
   (setq deadgrep-project-root-function
@@ -328,7 +328,7 @@
 
 (map! :map doom-leader-search-map :desc "Deadgrep" "r" #'deadgrep)
 
-(def-package! dtrt-indent
+(use-package! dtrt-indent
   :config
   (setq dtrt-indent-hook-mapping-list (add-to-list 'dtrt-indent-hook-mapping-list
                                                    '(ess-r-mode default ess-indent-offset))))
@@ -344,13 +344,13 @@
 (add-hook! :append 'text-mode-hook '(visual-line-mode  turn-off-auto-fill))
 (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
 
-(def-package! pandoc-mode
+(use-package! pandoc-mode
   :hook ((markdown-mode gfm-mode poly-markdown-mode) . pandoc-mode))
 
 ;; Easymotion
 ;; TODO Replace with #'+evil/easymotion once
 ;; https://github.com/hlissner/doom-emacs/issues/1672 is addressed
-(def-package! evil-easymotion
+(use-package! evil-easymotion
   :demand t
   :config
   (map! (:map doom-leader-map
