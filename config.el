@@ -164,12 +164,9 @@
           ("p" "Projects" tags-todo "_project"
            ((org-agenda-sorting-strategy '(todo-state-down))))))
   (setq org-capture-templates
-        '(("E" "Emacs config" entry
+        '(("e" "Emacs config" entry
            (file+headline "~/Dropbox/Notes/computers.org" "TODO Emacs configuration")
            "** TODO %?" :clock-in t :clock-resume t)
-          ("e" "Emacs note" entry
-           (file+headline "~/Dropbox/Notes/computers.org" "Emacs")
-           "** %?" :clock-in t :clock-resume t)
           ("t" "TODO" entry
            (file "~/Dropbox/Notes/unsorted.org")
            "* TODO %?\nCaptured %U\nFrom file %a\n" :clock-in t :clock-keep t)
@@ -181,8 +178,6 @@
            "* %? :NOTE:\nCaptured %U\n%a\n" :clock-in t :clock-resume t)
           ("i" "Interruption" entry (file "~/Dropbox/Notes/unsorted.org")
            "* %? \nCaptured %U" :clock-in t :clock-resume t)
-          ("s" "Schedule event" entry (file "~/Dropbox/Notes/unsorted.org")
-           "* %^{Event}t %? :NOTE:\nCaptured %U" :clock-in t :clock-resume t)
           ("c" "No-clock note" entry
            (file "~/Dropbox/Notes/unsorted.org")
            "* %?")))
