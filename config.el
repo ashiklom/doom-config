@@ -323,15 +323,6 @@
 (use-package! pandoc-mode
   :hook ((markdown-mode gfm-mode poly-markdown-mode) . pandoc-mode))
 
-;; Easymotion
-;; TODO Replace with #'+evil/easymotion once
-;; https://github.com/hlissner/doom-emacs/issues/1672 is addressed
-(use-package! evil-easymotion
-  :demand t
-  :config
-  (map! (:map doom-leader-map
-          "SPC" evilem-map)))
-
 ;; Override counsel-org-capture. For some reason, just mapping directly fails.
 (defun ans/org-capture ()
   "Just org-capture. No counsel."
