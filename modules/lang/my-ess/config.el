@@ -2,6 +2,8 @@
 
 (use-package! ess
   :commands (stata SAS)
+  :mode (("\\.Rprofile\\'" . ess-r-mode)
+         ("\\.[Rr]\\'" . ess-r-mode))
   :init
   (setq ess-smart-S-assign-key nil)
   (unless (featurep! :lang julia)
