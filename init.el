@@ -11,6 +11,7 @@
 ;; Temporary bugfix
 ;; See https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/?utm_source=share&utm_medium=web2x
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(setq custom-file "~/.emacs.d/.local/custom.el")
 
 (doom! :input
        ;;chinese
@@ -184,40 +185,3 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
-
-;; init.el
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((ess-r-package-dirs
-      ("R" . 1)
-      ("tests" . 1)
-      ("testthat" . 2)
-      ("analysis" . 1)
-      ("scratch" . 2)
-      ("scripts" . 2)
-      ("data-raw" . 1))
-     (ess-r-package-dirs
-      ("R" . 1)
-      ("tests" . 1)
-      ("testthat" . 2)
-      ("analysis" . 1)
-      ("scripts" . 2))
-     (ess-r-package-dirs
-      ("R" . 1)
-      ("tests" . 1)
-      ("testthat" . 2)
-      ("analysis" . 1)
-      ("scratch" . 2)
-      ("scripts" . 2))
-     (projectile-project-compilation-cmd . "make")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
