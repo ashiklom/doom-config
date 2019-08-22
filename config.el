@@ -34,9 +34,7 @@
       (:map doom-leader-project-map
         :desc "Find project file or buffer" "p" #'counsel-projectile
         :desc "Find file in project" "f" #'+ivy/projectile-find-file
-        :desc "Switch project" "o" #'counsel-projectile-switch-project
-        :desc ""
-        "/" nil)
+        :desc "Switch project" "o" #'counsel-projectile-switch-project)
 
       (:map doom-leader-workspace-map
         :desc "Switch workspace" "TAB" #'+workspace/switch-to
