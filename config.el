@@ -23,7 +23,10 @@
         "\\" #'evil-window-vsplit
         "+" #'evil-window-increase-height
         "_" #'evil-window-decrease-height
-        "d" #'+workspace/close-window-or-workspace)
+        "d" #'+workspace/close-window-or-workspace
+        "w" #'evil-window-mru
+        "C-n" #'evil-window-next
+        "C-p" #'evil-window-prev)
 
       (:map doom-leader-map
         :desc "Shell command" "!" #'shell-command)
