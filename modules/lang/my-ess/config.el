@@ -118,7 +118,8 @@
             :v "=" #'ans/ess-tidy-region)
           :i "_" #'self-insert-command
           :i "M--" #'ess-insert-assign
-          :i "M-m" (lambda() (interactive)(insert " %>%")))
+          :i "M-m" (lambda() (interactive)(insert " %>%"))
+          :i "C-'" (lambda() (interactive) (insert "#'")))
 
         ;; Old bindings
         ;; "," #'ess-eval-region-or-function-or-paragraph-and-step
