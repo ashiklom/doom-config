@@ -345,6 +345,9 @@
           :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
           :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode)))))
 
+(map! :nv "gz]" #'evil-mc-skip-and-goto-next-match
+      :nv "gz[" #'evil-mc-skip-and-goto-prev-match)
+
 (use-package! projectile
   :config
   ;; Allow this to be set via dir-locals without complaint
