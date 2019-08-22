@@ -7,12 +7,12 @@
 
 (setq doom-localleader-key "\\")
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups"))
+(setq backup-directory-alist '(("." . "~/.emacs.d/.local/backups"))
       delete-old-versions -1		; Don't delete old versions
       version-control t			; Version control backups
       make-backup-files t
       vc-make-backup-files t		; Backup files even if they are version controlled
-      auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t))) ; Save file name changes
+      auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t))) ; Save file name changes
 
 (setq display-line-numbers-type nil)
 
