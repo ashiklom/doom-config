@@ -9,7 +9,9 @@
   (unless (featurep! :lang julia)
     (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode)))
   :config
+  ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
+  (add-hook 'ess-mode-hook 'turn-off-smartparens-mode)
   (set-popup-rule!
     (rx string-start "*" "R" (any "*" ":"))
     ;; :quit #'ans/ess-close-if-not-running
