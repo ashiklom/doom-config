@@ -346,3 +346,8 @@
           :desc "Lisp interaction" "l" (lambda! (doom/open-scratch-buffer) (lisp-interaction-mode))
           :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
           :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode)))))
+
+(use-package! projectile
+  :config
+  ;; Allow this to be set via dir-locals without complaint
+  (put 'projectile-project-compilation-cmd 'safe-local-variable #'stringp))

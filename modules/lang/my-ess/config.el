@@ -5,13 +5,14 @@
   :mode (("\\.Rprofile\\'" . ess-r-mode)
          ("\\.[Rr]\\'" . ess-r-mode))
   :init
-  (setq ess-smart-S-assign-key nil)
   (unless (featurep! :lang julia)
     (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode)))
   :config
   ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
   (add-hook 'ess-mode-hook 'turn-off-smartparens-mode)
+  ;; Allow this to be set via dir-locals without complaint
+  (put 'ess-r-package-dirs 'safe-local-variable #'listp)
   (set-popup-rule!
     (rx string-start "*" "R" (any "*" ":"))
     ;; :quit #'ans/ess-close-if-not-running
