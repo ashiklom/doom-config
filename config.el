@@ -45,8 +45,8 @@
       :i "C-l" #'+company/complete
       :n "g RET" #'eval-defun
 
-      :i "C-0" (lambda () (interactive) (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
-      :i "C-s" (lambda () (interactive) (upcase-word -1))
+      :i "C-0" (lambda! (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
+      :i "C-s" (lambda! (upcase-word -1))
 
       :i "s-k" #'evil-insert-digraph)
 
@@ -342,7 +342,7 @@
         "x" nil
         (:prefix-map ("x" . "scratch")
           :desc "Fundamental" "x" #'doom/open-scratch-buffer
-          :desc "R" "r" (lambda () (interactive) (doom/open-scratch-buffer) (R-mode))
-          :desc "Lisp interaction" "l" (lambda () (interactive) (doom/open-scratch-buffer) (lisp-interaction-mode))
-          :desc "Python" "p" (lambda () (interactive) (doom/open-scratch-buffer) (python-mode))
-          :desc "Bash" "b" (lambda () (interactive) (doom/open-scratch-buffer) (sh-mode)))))
+          :desc "R" "r" (lambda! (doom/open-scratch-buffer) (R-mode))
+          :desc "Lisp interaction" "l" (lambda! (doom/open-scratch-buffer) (lisp-interaction-mode))
+          :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
+          :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode)))))
