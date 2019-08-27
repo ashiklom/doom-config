@@ -17,7 +17,11 @@ one that ships with helm-bibtex, except that
               :filter-return 'reverse))
 
 (use-package! org-ref
-  :after org)
+  :init
+  (setq bibtex-completion-additional-search-fields '(journal keywords)
+        bibtex-completion-display-formats
+        '((t . "${author:36} ${journal:30} ${title:*} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${keywords:20}")))
+  :commands org-ref)
 
 (use-package! citeproc-org
   :after org
