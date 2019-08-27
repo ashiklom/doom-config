@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/+org.el -*- lexical-binding: t; -*-
 
-(after! org
+(use-package! org
+  :config
   (defvar ans/organization-task-id "b86713a1-f9db-47c5-860f-6a2aecfec6c9")
   (setq ans/hide-scheduled-tasks t)
   (remove-hook 'org-mode-hook #'auto-fill-mode)
