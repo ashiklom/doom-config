@@ -179,7 +179,9 @@
           :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode)))))
 
 (map! :nv "gz]" #'evil-mc-skip-and-goto-next-match
-      :nv "gz[" #'evil-mc-skip-and-goto-prev-match)
+      :nv "gz[" #'evil-mc-skip-and-goto-prev-match
+      :n "gb" #'evil-next-buffer
+      :n "gB" #'evil-prev-buffer)
 
 (use-package! projectile
   :config
