@@ -16,6 +16,9 @@
 
 (setq display-line-numbers-type nil)
 
+(defvar ans/dropbox-dir (file-name-as-directory "~/Dropbox")
+  "Absolute path to Dropbox.")
+
 (map! (:map evil-window-map
         "o" #'ace-window
         "z" #'doom/window-enlargen
@@ -100,21 +103,12 @@
 (load! "+org")
 (load! "+bibtex")
 
-;;  Related to bibtex references
-(defvar ans/reference-dir (file-name-as-directory "~/Dropbox/references")
-  "Root directory for storing my bibliography.")
-(setq bibtex-completion-library-path (file-name-as-directory (concat ans/reference-dir "pdfs")))
-(setq bibtex-completion-notes-path (concat ans/reference-dir "notes.org"))
-(setq bibtex-completion-bibliography (concat ans/reference-dir "library.bib"))
-(setq bibtex-autokey-titleword-length 15)
-(setq org-ref-default-bibliography (list bibtex-completion-bibliography))
-
 ;; CSL locale files. If this doesn't exist, clone them from:
 ;; https://github.com/citation-style-language/locales
 (setq citeproc-org-locales-dir "~/.config/csl-locales")
 
 ;; Diary -- mostly, to prevent errors about this file not existing
-(setq diary-file "~/Dropbox/Notes/journal/diary")
+(setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
 
 (use-package! fill-function-arguments
   :commands (fill-function-arguments-dwim))

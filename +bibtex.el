@@ -1,6 +1,22 @@
 ;;; ~/.doom.d/+bibtex.el -*- lexical-binding: t; -*-
 
-(after! helm-bibtex
+;;  Related to bibtex references
+(defvar ans/reference-dir (file-name-as-directory (concat ans/dropbox-dir "references"))
+  "Root directory for storing my bibliography.")
+(defvar ans/reference-bibfile (concat ans/reference-dir "library.bib")
+  "Main bibliography file.")
+(defvar ans/reference-notes (concat ans/reference-dir "notes.org")
+  "References notes file.")
+(defvar ans/reference-pdfs (file-name-as-directory (concat ans/reference-dir "pdfs"))
+  "References PDFs directory.")
+
+(use-package! helm-bibtex
+  :config
+  (setq bibtex-completion-library-path ans/reference-pdfs
+        bibtex-completion-notes-path ans/reference-notes
+        bibtex-completion-bibliography ans/reference-bibfile
+        bibtex-autokey-titleword-length 15
+        org-ref-default-bibliography (list bibtex-completion-bibliography))
   (setq bibtex-autokey-name-case-convert-function 'downcase
         bibtex-autokey-name-year-separator "_"
         bibtex-autokey-year-title-separator "_"
@@ -46,6 +62,12 @@
           "TAB" #'helm-execute-persistent-action
           "C-z" #'helm-select-action)))
 
+(use-package! org-ref
+  :config
+  (setq org-ref-bibliography-notes ans/reference-notes
+        reftex-default-bibliography (list ans/reference-bibfile)
+        org-ref-default-bibliography (list ans/reference-bibfile)
+        org-ref-pdf-directory ans/reference-pdfs))
 
 (defun ans/hsplit-frame ()
   "Split window entirely below the current frame."
