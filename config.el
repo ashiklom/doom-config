@@ -32,7 +32,8 @@
         "C-p" #'evil-window-prev)
 
       (:map doom-leader-map
-        :desc "Shell command" "!" #'shell-command)
+        :desc "Shell command" "!" #'shell-command
+        :desc "Redraw frame" "&" (lambda! (redraw-frame)))
 
       (:map doom-leader-project-map
         :desc "Find project file or buffer" "p" #'counsel-projectile
