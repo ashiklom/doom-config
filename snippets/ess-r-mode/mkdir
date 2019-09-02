@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mkdir
+# uuid: r-mkdir
+# key: mkdir
+# condition: t
+# --
+dir.create($0, showWarnings = FALSE, recursive = TRUE)
