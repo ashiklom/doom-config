@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: org-caption
+# uuid: org-caption
+# key: #cap
+# condition: t
+# --
+#+CAPTION: $0
