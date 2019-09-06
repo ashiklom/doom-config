@@ -5,6 +5,7 @@
   (defvar ans/organization-task-id "b86713a1-f9db-47c5-860f-6a2aecfec6c9")
   (setq ans/hide-scheduled-tasks t)
   (remove-hook 'org-mode-hook #'auto-fill-mode)
+  (remove-hook 'org-mode-hook #'org-indent-mode)
   (setq org-agenda-files '("~/Dropbox/Notes/" "~/Dropbox/references/notes.org")
         org-directory "~/Dropbox/Notes"
         org-tags-exclude-from-inheritance '("_project" "_organize")
@@ -13,7 +14,8 @@
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps nil
         org-refile-allow-creating-parent-nodes 'confirm
-        org-refile-target-verify-function 'ans/verify-refile-target)
+        org-refile-target-verify-function 'ans/verify-refile-target
+        org-startup-indented t)
   (defun ans/verify-refile-target ()
     "Exclude TODO keywords with a done state from refile targets."
     (not (member (nth 2 (org-heading-components)) org-done-keywords)))
