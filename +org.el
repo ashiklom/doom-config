@@ -150,6 +150,13 @@
     (interactive)
     (org-clock-in-last '(4)))
 
+  (defun ans/org-remove-headlines (backend)
+    "Remove headlines with :no_title tag."
+    (org-map-entries (lambda () (delete-region (point-at-bol) (point-at-eol)))
+                     "no_title"))
+
+  (add-hook 'org-export-before-processing-hook #'ans/org-remove-headlines)
+
   (map! :map doom-leader-open-map
         (:prefix-map ("c" . "clock")
           :desc "Punch in" "+" #'ans/punch-in
