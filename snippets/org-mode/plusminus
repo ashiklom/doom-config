@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: plusminus
+# uuid: plusminus
+# key: pm
+# condition: t
+# --
++/-
