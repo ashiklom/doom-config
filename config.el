@@ -29,7 +29,8 @@
         "d" #'+workspace/close-window-or-workspace
         "w" #'evil-window-mru
         "C-n" #'evil-window-next
-        "C-p" #'evil-window-prev)
+        "C-p" #'evil-window-prev
+        :desc "Raise popup window" "~" #'+popup/raise)
 
       (:map doom-leader-map
         :desc "Shell command" "!" #'shell-command
