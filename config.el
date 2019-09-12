@@ -139,6 +139,20 @@
   (setq dtrt-indent-hook-mapping-list (add-to-list 'dtrt-indent-hook-mapping-list
                                                    '(ess-r-mode default ess-indent-offset))))
 
+
+;; Modify popup defaults
+(setq +popup-defaults
+      (list :side 'bottom
+            :height 0.16
+            :width 0.3
+            :quit t
+            :select #'ignore
+            ;; "Time to live"
+            :ttl 5))
+
+(map! (:map doom-leader-git-map
+        :desc "Diff hunk" "d" #'git-gutter:popup-diff))
+
 ;; Don't quit the compilation buffer if it's still running
 (set-popup-rule!
   (rx string-start (zero-or-more blank)
