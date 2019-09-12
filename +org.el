@@ -15,7 +15,8 @@
         org-outline-path-complete-in-steps nil
         org-refile-allow-creating-parent-nodes 'confirm
         org-refile-target-verify-function 'ans/verify-refile-target
-        org-startup-indented t)
+        org-startup-indented t
+        org-agenda-dim-blocked-tasks nil)
   (defun ans/verify-refile-target ()
     "Exclude TODO keywords with a done state from refile targets."
     (not (member (nth 2 (org-heading-components)) org-done-keywords)))
