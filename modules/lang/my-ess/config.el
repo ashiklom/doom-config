@@ -11,36 +11,39 @@
   ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
   (add-hook 'ess-mode-hook 'turn-off-smartparens-mode)
+  ;; Common ESS settings
+  (setq ess-eval-visibly 'nowait
+        ess-fill-calls-newlines t
+        ess-nuke-trailing-whitespace-p t
+        ess-use-flymake (not (featurep! :tools flycheck))
+        comint-move-point-for-output t)
+  (defun ans/r-mode-settings ()
+    "Custom R mode configurations."
+    (setq ess-offset-continued 'straight
+          ess-ask-for-ess-directory nil
+          ess-directory-function #'ans-r-file-here
+          ess-style 'RStudio
+          ess-history-directory (expand-file-name "ess-history/" doom-cache-dir)
+          ess-roxy-str "#'"
+          ess-roxy-fill-param-p t
+          ess-roxy-template-alist
+          '(("description" . ".. title/description ..")
+            ("param" . "")
+            ("return" . "")
+            ("author" . "Alexey Shiklomanov"))
+          inferior-R-args "--no-save --no-restore")
+    (setf (alist-get 'ess-fl-keyword:fun-calls ess-R-font-lock-keywords) t))
+  (add-hook 'ess-mode-hook #'ans/r-mode-settings)
   ;; Allow this to be set via dir-locals without complaint
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
   (set-popup-rule!
-    (rx string-start "*" "R" (any "*" ":"))
+    (rx string-start "*" (or "R" "julia") (any "*" ":"))
     ;; :quit #'ans/ess-close-if-not-running
     :quit nil
     :size 0.3
     :slot 2
     :vslot 2
     :select nil)
-  (setq ess-offset-continued 'straight
-        ess-use-flymake (not (featurep! :tools flycheck))
-        ess-ask-for-ess-directory nil
-        ess-directory-function #'ans-r-file-here
-        ess-nuke-trailing-whitespace-p t
-        ess-style 'RStudio
-        ess-fill-calls-newlines t
-        ess-eval-visibly 'nowait
-        ess-history-directory (expand-file-name "ess-history/" doom-cache-dir)
-        ess-roxy-str "#'"
-        ess-roxy-fill-param-p t
-        ess-roxy-template-alist
-        '(("description" . ".. title/description ..")
-          ("param" . "")
-          ("return" . "")
-          ("author" . "Alexey Shiklomanov"))
-        inferior-R-args "--no-save --no-restore"
-        comint-move-point-for-output t)
-
-  (setf (alist-get 'ess-fl-keyword:fun-calls ess-R-font-lock-keywords) t)
 
   (set-repl-handler! '(ess-r-mode ess-julia-mode) #'+ess-repl-buffer)
   (set-lookup-handlers! '(ess-r-mode ess-julia-mode)
@@ -68,10 +71,33 @@
           [up]       #'comint-next-input
           [down]     #'comint-previous-input)
 
-        (:map (ess-mode-map ess-r-mode-map)
+        (:map ess-mode-map
+          (:localleader
+            :n "rq" #'ess-quit))
+
+        (:map ess-julia-mode-map
+          (:localleader
+            "rf" #'julia
+            [tab]     #'ess-switch-to-inferior-or-script-buffer
+            [backtab] #'ess-switch-process
+            ;; REPL
+            "," #'ess-eval-region-or-function-or-paragraph-and-step
+            "B" #'ess-eval-buffer-and-go
+            "b" #'ess-eval-buffer
+            "d" #'ess-eval-region-or-line-and-step
+            "D" #'ess-eval-function-or-paragraph-and-step
+            "L" #'ess-eval-line-and-go
+            "l" #'ess-eval-line
+            "R" #'ess-eval-region-and-go
+            "F" #'ess-eval-function-and-go
+            "f" #'ess-eval-function
+            "pp" #'ess-eval-paragraph
+            "pd" #'ess-eval-paragraph-and-go
+            :v "ss" #'ess-eval-region))
+       
+        (:map ess-r-mode-map
           (:localleader
             :n "r f" #'ess-switch-process
-            :n "r q" #'ess-quit
             ;; Built-in versions of these commands
             ;; :n "l" #'ess-eval-line
             ;; :n "d" #'ess-eval-line-and-step
@@ -123,19 +149,6 @@
           :i "C-'" (lambda() (interactive) (insert "#'")))
 
         ;; Old bindings
-        ;; "," #'ess-eval-region-or-function-or-paragraph-and-step
-        ;; [tab]     #'ess-switch-to-inferior-or-script-buffer
-        ;; [backtab] #'ess-switch-process
-        ;; REPL
-        ;; "B" #'ess-eval-buffer-and-go
-        ;; "b" #'ess-eval-buffer
-        ;; "d" #'ess-eval-region-or-line-and-step
-        ;; "D" #'ess-eval-function-or-paragraph-and-step
-        ;; "L" #'ess-eval-line-and-go
-        ;; "l" #'ess-eval-line
-        ;; "R" #'ess-eval-region-and-go
-        ;; "F" #'ess-eval-function-and-go
-        ;; "f" #'ess-eval-function
         ;; noweb
         ;; :prefix "c"
         ;; "C" #'ess-eval-chunk-and-go
