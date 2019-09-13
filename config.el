@@ -5,6 +5,9 @@
 (setq user-full-name "Alexey Shiklomanov"
       user-mail-address "alexey.shiklomanov@gmail.com")
 
+(defvar ans/dropbox-dir (file-name-as-directory "~/Dropbox")
+  "Absolute path to Dropbox.")
+
 (setq backup-directory-alist '(("." . "~/.emacs.d/.local/backups"))
       delete-old-versions -1		; Don't delete old versions
       version-control t			; Version control backups
@@ -16,9 +19,6 @@
 
 ;; Diary -- mostly, to prevent errors about this file not existing
 (setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
-
-(defvar ans/dropbox-dir (file-name-as-directory "~/Dropbox")
-  "Absolute path to Dropbox.")
 
 (evil-ex-define-cmd "rename" 'rename-this-buffer-and-file)
 (evil-ex-define-cmd "dkill" #'ans/delete-file-and-buffer)
@@ -79,3 +79,5 @@
 
 ;; Disable smartparens mode in these modes because of interference with electric pairs mode
 (add-hook! '(markdown-mode-hook nxml-mode-hook) (smartparens-mode -1))
+
+(put 'erase-buffer 'disabled nil)
