@@ -39,11 +39,3 @@
   "`(evil-open-below COUNT)` without the extra advice that adds comments."
   (interactive "p")
   (evil-open-above count))
-
-(defun ans/fill-function-arguements-and-indent ()
-  "Fill function arguments and indent."
-  (interactive)
-  (fill-function-arguments-dwim)
-  (let ((start (save-excursion (sp-beginning-of-sexp) (point)))
-        (end (save-excursion (sp-end-of-sexp) (+ (point) 1))))
-    (indent-region start end)))

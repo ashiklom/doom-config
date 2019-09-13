@@ -28,9 +28,6 @@
 (load! "lisp/org")
 (load! "lisp/bibtex")
 
-(use-package! fill-function-arguments
-  :commands (fill-function-arguments-dwim))
-
 ;; Deadgrep
 (use-package! deadgrep
   :commands (deadgrep)
@@ -48,6 +45,13 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode))
+
+(use-package! multi-line
+  :config
+  (setq-default multi-line-current-strategy
+                (multi-line-strategy
+                 :respace (multi-line-default-respacers
+                           (make-instance multi-line-always-newline)))))
 
 (use-package! pandoc-mode
   :hook ((markdown-mode gfm-mode poly-markdown-mode) . pandoc-mode))

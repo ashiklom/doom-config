@@ -6,7 +6,7 @@
       :n "O" #'ans/evil-open-above
       :n "go" #'evil-open-below
       :n "gO" #'evil-open-above
-      :desc "Fill function arguments" :n "g[" #'ans/fill-function-arguements-and-indent
+      :desc "Cycle multi line" :n "g[" #'multi-line
 
       :n "gz]" #'evil-mc-skip-and-goto-next-match
       :nv "gz[" #'evil-mc-skip-and-goto-prev-match

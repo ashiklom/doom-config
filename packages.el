@@ -6,7 +6,7 @@
 ;; (package! another-package :recipe (:host github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
-(package! fill-function-arguments :recipe (:host github :repo "davidshepherd7/fill-function-arguments"))
+(package! multi-line)
 (package! deadgrep)
 (package! dtrt-indent)
 (package! pandoc-mode)
