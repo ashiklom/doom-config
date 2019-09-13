@@ -21,6 +21,8 @@
       :i "C-s" (lambda! (upcase-word -1))
       :i "s-k" #'evil-insert-digraph
 
+      :g "M-0" nil
+
       (:leader
         :desc "Org capture" "X" #'ans/org-capture
         :desc "Shell command" "!" #'shell-command
