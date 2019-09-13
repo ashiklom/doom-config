@@ -14,12 +14,26 @@
       :n "gb" #'evil-next-buffer
       :n "gB" #'evil-prev-buffer
 
-      :desc "Eval defun" :m "RET" #'eval-defun
+      :desc "Eval defun" :m "g RET" #'eval-defun
 
       :i "C-l" #'+company/complete
       :i "C-0" (lambda! (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
       :i "C-s" (lambda! (upcase-word -1))
       :i "s-k" #'evil-insert-digraph
+
+      (:leader
+        :desc "Org capture" "X" #'ans/org-capture
+        :desc "Shell command" "!" #'shell-command
+        :desc "Redraw frame" "&" (lambda! (redraw-frame))
+        :desc "Toggle smartparens" ")" #'smartparens-mode
+        :desc "Toggle visual lines" "$" #'visual-line-mode
+        "x" nil
+        (:prefix-map ("x" . "scratch")
+          :desc "Fundamental" "x" #'doom/open-scratch-buffer
+          :desc "R" "r" (lambda! (doom/open-scratch-buffer) (R-mode))
+          :desc "Lisp interaction" "l" (lambda! (doom/open-scratch-buffer) (lisp-interaction-mode))
+          :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
+          :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode))))
 
       (:map evil-window-map
         "o" #'ace-window
@@ -33,18 +47,6 @@
         "C-n" #'evil-window-next
         "C-p" #'evil-window-prev
         :desc "Raise popup window" "~" #'+popup/raise)
-
-      (:leader
-        :desc "Org capture" "X" #'ans/org-capture
-        :desc "Shell command" "!" #'shell-command
-        :desc "Redraw frame" "&" (lambda! (redraw-frame))
-        "x" nil
-        (:prefix-map ("x" . "scratch")
-          :desc "Fundamental" "x" #'doom/open-scratch-buffer
-          :desc "R" "r" (lambda! (doom/open-scratch-buffer) (R-mode))
-          :desc "Lisp interaction" "l" (lambda! (doom/open-scratch-buffer) (lisp-interaction-mode))
-          :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
-          :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode))))
 
       (:map doom-leader-project-map
         :desc "Find project file or buffer" "p" #'counsel-projectile
