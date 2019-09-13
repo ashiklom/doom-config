@@ -76,3 +76,6 @@
 
 ;; Automatically soft-wrap lines in text modes
 (add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))
+
+;; Disable smartparens mode in these modes because of interference with electric pairs mode
+(add-hook! '(markdown-mode-hook nxml-mode-hook) (smartparens-mode -1))
