@@ -61,4 +61,4 @@
       (:map doom-leader-search-map :desc "Deadgrep" "r" #'deadgrep)
 
       (:map doom-leader-git-map
-        :desc "Diff hunk" "d" #'git-gutter:popup-diff))
+        :desc "Diff hunk" "d" #'git-gutter:popup-hunk))
