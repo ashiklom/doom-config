@@ -10,6 +10,10 @@
 (defvar ans/reference-pdfs (file-name-as-directory (concat ans/reference-dir "pdfs"))
   "References PDFs directory.")
 
+;; CSL locale files. If this doesn't exist, clone them from:
+;; https://github.com/citation-style-language/locales
+(setq citeproc-org-locales-dir "~/.config/csl-locales")
+
 (use-package! helm-bibtex
   :config
   (setq bibtex-completion-library-path ans/reference-pdfs

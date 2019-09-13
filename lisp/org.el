@@ -5,7 +5,6 @@
   (defvar ans/organization-task-id "b86713a1-f9db-47c5-860f-6a2aecfec6c9")
   (setq ans/hide-scheduled-tasks t)
   (remove-hook 'org-mode-hook #'auto-fill-mode)
-  (remove-hook 'org-mode-hook #'org-indent-mode)
   (setq org-agenda-files '("~/Dropbox/Notes/" "~/Dropbox/references/notes.org")
         org-directory "~/Dropbox/Notes"
         org-tags-exclude-from-inheritance '("_project" "_organize")
@@ -178,3 +177,10 @@
 
   (map! :map evil-org-mode-map
         :n "z n" #'org-toggle-narrow-to-subtree))
+
+;; Override counsel-org-capture. For some reason, just mapping directly fails.
+(defun ans/org-capture ()
+  "Just org-capture. No counsel."
+  (interactive)
+  (require 'org-capture)
+  (org-capture))
