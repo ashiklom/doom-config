@@ -14,6 +14,9 @@
 
 (setq display-line-numbers-type nil)
 
+;; Diary -- mostly, to prevent errors about this file not existing
+(setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
+
 (defvar ans/dropbox-dir (file-name-as-directory "~/Dropbox")
   "Absolute path to Dropbox.")
 
@@ -24,9 +27,6 @@
 (load! "lisp/keymaps")
 (load! "lisp/org")
 (load! "lisp/bibtex")
-
-;; Diary -- mostly, to prevent errors about this file not existing
-(setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
 
 (use-package! fill-function-arguments
   :commands (fill-function-arguments-dwim))
