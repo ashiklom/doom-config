@@ -20,6 +20,7 @@
 (evil-ex-define-cmd "rename" 'rename-this-buffer-and-file)
 (evil-ex-define-cmd "dkill" #'ans/delete-file-and-buffer)
 
+(load! "lisp/utils")
 (load! "lisp/keymaps")
 (load! "lisp/org")
 (load! "lisp/bibtex")

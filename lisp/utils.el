@@ -34,6 +34,7 @@
   "`(evil-open-below COUNT)` without the extra advice that adds comments."
   (interactive "p")
   (evil-open-below count))
+
 (defun ans/evil-open-above (count)
   "`(evil-open-below COUNT)` without the extra advice that adds comments."
   (interactive "p")
