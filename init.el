@@ -8,9 +8,6 @@
 ;; More information about these modules (and what flags they support) can be
 ;; found in modules/README.org.
 
-;; Temporary bugfix
-;; See https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/?utm_source=share&utm_medium=web2x
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (setq custom-file "~/.emacs.d/.local/custom.el")
 
 (doom! :input
