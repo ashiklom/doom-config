@@ -72,8 +72,11 @@
           [down]     #'comint-previous-input)
 
         (:map ess-mode-map
+          :g "M-RET" nil
           (:localleader
-            :n "rq" #'ess-quit))
+            :n "rq" #'ess-quit
+            :n "cd" #'ess-use-this-dir
+            :n "cD" #'ess-use-dir))
 
         (:map ess-julia-mode-map
           (:localleader
