@@ -148,8 +148,9 @@
             :v "=" #'ans/ess-tidy-region)
           :i "_" #'self-insert-command
           :i "M--" #'ess-insert-assign
-          :i "M-m" (lambda() (interactive)(insert " %>%"))
-          :i "C-'" (lambda() (interactive) (insert "#'")))
+          :i "M-m" (lambda! (insert " %>%"))
+          :i "M-f" (lambda! (insert " %<-%"))
+          :i "C-'" (lambda! (insert "#'")))
 
         ;; Old bindings
         ;; noweb
