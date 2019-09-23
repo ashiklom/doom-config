@@ -33,6 +33,7 @@
             ("author" . "Alexey Shiklomanov"))
           inferior-R-args "--no-save --no-restore")
     (setf (alist-get 'ess-fl-keyword:fun-calls ess-R-font-lock-keywords) t))
+    (setf (alist-get 'ess-R-fl-keyword:fun-calls ess-R-font-lock-keywords) t)
   (add-hook 'ess-mode-hook #'ans/r-mode-settings)
   ;; Allow this to be set via dir-locals without complaint
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
