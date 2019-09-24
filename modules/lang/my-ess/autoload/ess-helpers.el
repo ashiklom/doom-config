@@ -74,7 +74,12 @@
 (defun ans/ess-usethis-package ()
   "Run `usethis::use_package` on symbol at point."
   (interactive)
-  (ans/ess-do-with-symbol-at-point "usethis::use_package('%s')"))
+  (let (wrd pkg)
+    (setq wrd (symbol-name (ess-symbol-at-point)))
+    (setq pkg (car (s-split "::" wrd)))
+    (ess-send-string
+     (ess-get-process)
+     (format "usethis::use_package('%s')" pkg))))
 
 ;;;###autoload
 (defun ans/rmarkdown-render ()
