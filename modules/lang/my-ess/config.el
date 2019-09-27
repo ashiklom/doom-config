@@ -40,6 +40,7 @@
           ess-directory-function #'ans-r-file-here
           ess-style 'RStudio
           ess-history-directory (expand-file-name "ess-history/" doom-cache-dir)
+          ess-history-file ".Rhistory"
           ess-roxy-str "#'"
           ess-roxy-fill-param-p t
           ess-roxy-template-alist
@@ -48,6 +49,8 @@
             ("return" . "")
             ("author" . "Alexey Shiklomanov"))
           inferior-R-args "--no-save --no-restore")
+    (f-mkdir ess-history-directory)
+    (f-touch (expand-file-name ess-history-file ess-history-directory)))
   (add-hook 'ess-mode-hook #'ans/r-mode-settings)
   ;; Allow this to be set via dir-locals without complaint
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
