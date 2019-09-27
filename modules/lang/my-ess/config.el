@@ -7,6 +7,22 @@
   :init
   (unless (featurep! :lang julia)
     (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode)))
+  :custom
+  (ess-R-font-lock-keywords
+   '((ess-R-fl-keyword:fun-calls . t)
+     (ess-R-fl-keyword:keywords . t)
+     (ess-R-fl-keyword:constants . t)
+     (ess-R-fl-keyword:modifiers . t)
+     (ess-R-fl-keyword:fun-defs . t)
+     (ess-R-fl-keyword:assign-ops . t)
+     (ess-R-fl-keyword:%op% . t)
+     (ess-fl-keyword:fun-calls . t)
+     (ess-fl-keyword:numbers)
+     (ess-fl-keyword:operators)
+     (ess-fl-keyword:delimiters)
+     (ess-fl-keyword:=)
+     (ess-R-fl-keyword:F&T)))
+
   :config
   ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
@@ -32,8 +48,6 @@
             ("return" . "")
             ("author" . "Alexey Shiklomanov"))
           inferior-R-args "--no-save --no-restore")
-    (setf (alist-get 'ess-fl-keyword:fun-calls ess-R-font-lock-keywords) t))
-    (setf (alist-get 'ess-R-fl-keyword:fun-calls ess-R-font-lock-keywords) t)
   (add-hook 'ess-mode-hook #'ans/r-mode-settings)
   ;; Allow this to be set via dir-locals without complaint
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
