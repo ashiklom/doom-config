@@ -27,6 +27,7 @@
 (load! "lisp/keymaps")
 (load! "lisp/org")
 (load! "lisp/bibtex")
+(load! "lisp/popups")
 
 ;; Deadgrep
 (use-package! deadgrep
@@ -60,23 +61,6 @@
   :config
   ;; Allow this to be set via dir-locals without complaint
   (put 'projectile-project-compilation-cmd 'safe-local-variable #'stringp))
-
-;; Modify popup defaults
-(setq +popup-defaults
-      (list :side 'bottom
-            :height 0.16
-            :width 0.3
-            :quit t
-            :select #'ignore
-            ;; "Time to live"
-            :ttl 5))
-
-;; Don't quit the compilation buffer if it's still running
-(set-popup-rule!
-  (rx string-start (zero-or-more blank)
-      "*" (zero-or-more blank) "compilation")
-  :select nil
-  :quit (lambda (_window) (not compilation-in-progress)))
 
 ;; Automatically soft-wrap lines in text modes
 (add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))

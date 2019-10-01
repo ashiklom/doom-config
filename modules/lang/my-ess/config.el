@@ -54,14 +54,6 @@
   (add-hook 'ess-mode-hook #'ans/r-mode-settings)
   ;; Allow this to be set via dir-locals without complaint
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
-  (set-popup-rule!
-    (rx string-start "*" (or "R" "julia") (any "*" ":"))
-    ;; :quit #'ans/ess-close-if-not-running
-    :quit nil
-    :size 0.3
-    :slot 2
-    :vslot 2
-    :select nil)
 
   (set-repl-handler! '(ess-r-mode ess-julia-mode) #'+ess-repl-buffer)
   (set-lookup-handlers! '(ess-r-mode ess-julia-mode)
