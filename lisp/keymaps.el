@@ -68,4 +68,16 @@
         :desc "Diff hunk" "d" #'git-gutter:popup-hunk)
 
       (:map doom-leader-buffer-map
-        :desc "Erase buffer" "DEL" #'erase-buffer))
+        :desc "Erase buffer" "DEL" #'erase-buffer)
+
+      (:map ctbl:table-mode-map
+        :n "q" #'doom/escape
+        :n "j" #'ctbl:navi-move-down
+        :n "k" #'ctbl:navi-move-up
+        :n "l" #'ctbl:navi-move-right
+        :n "h" #'ctbl:navi-move-left
+        :n "gl" #'ctbl:navi-move-right-most
+        :n "gh" #'ctbl:navi-move-left-most
+        :n "g/" #'ctbl:navi-jump-to-column
+        :n "g?" #'ctbl:navi-goto-cell
+        :n "g RET" #'ans/ctbl-sort-current-column))

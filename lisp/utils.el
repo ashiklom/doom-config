@@ -39,3 +39,11 @@
   "`(evil-open-below COUNT)` without the extra advice that adds comments."
   (interactive "p")
   (evil-open-above count))
+
+(defun ans/ctbl-sort-current-column ()
+  "Sort the column of the currently selected cell in ctbl."
+  (interactive)
+  (let* ((cp  (ctbl:cp-get-component))
+         (cell (ctbl:cp-get-selected cp))
+         (j (cdr cell)))
+    (ctbl:cmodel-sort-action cp j)))
