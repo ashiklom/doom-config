@@ -80,4 +80,8 @@
         :n "gh" #'ctbl:navi-move-left-most
         :n "g/" #'ctbl:navi-jump-to-column
         :n "g?" #'ctbl:navi-goto-cell
-        :n "g RET" #'ans/ctbl-sort-current-column))
+        :n "g RET" #'ans/ctbl-sort-current-column)
+
+      (:map outline-minor-mode-map
+        :desc "Close all" :n "z0" #'outline-hide-body
+        :desc "Open all" :n "z*" #'outline-show-all))
