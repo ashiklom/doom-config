@@ -69,12 +69,3 @@
 (add-hook! '(markdown-mode-hook nxml-mode-hook) (smartparens-mode -1))
 
 (put 'erase-buffer 'disabled nil)
-
-;; Configure hideshow for R.
-;; TODO: This doesn't work!
-(use-package! hideshow
-  :config
-  (setq hs-special-modes-alist
-        (append
-         '((ess-r-mode "---" "-end-" "#"))
-         hs-special-modes-alist)))
