@@ -49,7 +49,7 @@
             ("return" . "")
             ("author" . "Alexey Shiklomanov"))
           inferior-R-args "--no-save --no-restore")
-    (setq-local outline-regexp "# ---")
+    (setq-local outline-regexp "###+ ")
     (setq-local outline-heading-end-regexp "\n")
     (f-mkdir ess-history-directory)
     (f-touch (expand-file-name ess-history-file ess-history-directory)))
