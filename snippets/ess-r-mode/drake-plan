@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: drake-plan
+# uuid: drake-plan
+# key: dplan
+# --
+plan <- bind_plans(plan, drake_plan(
+  $0
+))
