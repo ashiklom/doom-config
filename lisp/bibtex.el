@@ -14,6 +14,11 @@
 ;; https://github.com/citation-style-language/locales
 (setq citeproc-org-locales-dir "~/.config/csl-locales")
 
+(defvar ans/bibtex-display-format
+  '((t . "${author:36} ${journal:30} ${title:*} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${keywords:20}"))
+  "My custom display format.")
+(setq bibtex-completion-display-formats ans/bibtex-display-format)
+
 (use-package! ivy-bibtex
   :config
   (setq bibtex-completion-library-path ans/reference-pdfs
@@ -29,8 +34,7 @@
         bibtex-autokey-titleword-ignore nil
         bibtex-autokey-titleword-case-convert-function 'downcase
         bibtex-completion-additional-search-fields '(journal keywords)
-        bibtex-completion-display-formats
-        '((t . "${author:36} ${journal:30} ${title:*} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${keywords:20}"))
+        bibtex-completion-display-formats ans/bibtex-display-format
         bibtex-completion-notes-template-one-file
         (string-join
          '("** TODO ${author-abbrev} (${year}): ${title}"
