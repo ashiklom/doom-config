@@ -1,8 +1,9 @@
 ;;; tools/bibtex/config.el -*- lexical-binding: t; -*-
 
-(use-package! helm-bibtex
-  :commands (helm-bibtex)
+(use-package! ivy-bibtex
+  :commands (ivy-bibtex)
   :config
+  (setq ivy-bibtex-default-action #'ivy-bibtex-insert-citation)
   (defun bibtex-completion-fallback-candidates ()
     "Custom list of bibtex fallback options. This is the same as the
 one that ships with helm-bibtex, except that

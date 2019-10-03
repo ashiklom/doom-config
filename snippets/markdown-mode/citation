@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: helm-bibtex
+# name: citation
 # key: cite
 # type: command
 # --
-(helm-bibtex)
+(ivy-bibtex)

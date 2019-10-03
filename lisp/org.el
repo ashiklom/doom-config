@@ -167,7 +167,7 @@
 
   (map! :map doom-leader-notes-map
         :desc "Reveal" "TAB" #'org-reveal
-        :desc "Helm-bibtex" "b" #'helm-bibtex)
+        :desc "Ivy bibtex" "b" #'ivy-bibtex)
 
   (map! :map org-agenda-mode-map
         :m :desc "Log mode" "@l" #'org-agenda-log-mode

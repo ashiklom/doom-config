@@ -1,7 +1,7 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; tools/bibtex/packages.el
 
-(package! helm-bibtex)
+(package! ivy-bibtex)
 ;;(package! helm-bibtex :recipe (:host github :repo "ashiklom/helm-bibtex" :branch "author-abbrev"))
 (package! org-ref)
 (package! citeproc)
