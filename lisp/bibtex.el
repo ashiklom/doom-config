@@ -14,7 +14,7 @@
 ;; https://github.com/citation-style-language/locales
 (setq citeproc-org-locales-dir "~/.config/csl-locales")
 
-(use-package! helm-bibtex
+(use-package! ivy-bibtex
   :config
   (setq bibtex-completion-library-path ans/reference-pdfs
         bibtex-completion-notes-path ans/reference-notes
@@ -45,10 +45,7 @@
            ":DOI: ${doi}"
            ":URL: ${url}"
            ":END:"
-           "cite:${=key=}") "\n")
-        helm-display-function #'ans/helm-hsplit-frame
-        helm-autoresize-mode t
-        helm-autoresize-mode 40)
+           "cite:${=key=}") "\n"))
   (map! (:map biblio-selection-mode-map
           :desc "Add to bibfile" "I" #'ans/biblio-selection-insert-end-of-bibfile)
         (:map bibtex-mode-map
@@ -61,10 +58,7 @@
         (:map org-mode-map
           :localleader
           (:prefix-map ("\\" . "org-ref")
-            :desc "URL" "u" #'org-ref-open-url-at-point))
-        (:map helm-map
-          "TAB" #'helm-execute-persistent-action
-          "C-z" #'helm-select-action)))
+            :desc "URL" "u" #'org-ref-open-url-at-point))))
 
 (use-package! org-ref
   :config
@@ -76,9 +70,3 @@
 (defun ans/hsplit-frame ()
   "Split window entirely below the current frame."
   (split-window (frame-root-window) nil 'below))
-
-(defun ans/helm-hsplit-frame (buffer &optional _resume)
-  "Open new window below frame, switch to it, and open BUFFER."
-  (ans/hsplit-frame)
-  (evil-window-bottom-right)
-  (switch-to-buffer buffer))
