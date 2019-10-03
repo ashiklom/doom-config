@@ -1,7 +1,7 @@
 ;;; tools/bibtex/config.el -*- lexical-binding: t; -*-
 
 (use-package! helm-bibtex
-  :commands (ivy-bibtex)
+  :commands (helm-bibtex)
   :config
   (defun bibtex-completion-fallback-candidates ()
     "Custom list of bibtex fallback options. This is the same as the
