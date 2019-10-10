@@ -23,6 +23,10 @@
 
       :g "M-0" nil
 
+      :g "s-c" #'simpleclip-copy
+      :g "s-v" #'simpleclip-paste
+      :g "s-x" #'simpleclip-cut
+
       (:leader
         :desc "Org capture" "X" #'ans/org-capture
         :desc "Shell command" "!" #'shell-command

@@ -69,3 +69,8 @@
 (add-hook! '(markdown-mode-hook nxml-mode-hook) (smartparens-mode -1))
 
 (put 'erase-buffer 'disabled nil)
+
+(use-package! simpleclip
+  :commands (simpleclip-cut simpleclip-copy simpleclip-paste simpleclip-mode)
+  :config
+  (simpleclip-mode))

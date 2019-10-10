@@ -10,3 +10,4 @@
 (package! deadgrep)
 (package! dtrt-indent)
 (package! pandoc-mode)
+(package! simpleclip)
