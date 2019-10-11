@@ -52,8 +52,9 @@
     (setq-local outline-regexp "###+ ")
     (setq-local outline-heading-end-regexp "\n")
     (f-mkdir ess-history-directory)
-    (f-touch (expand-file-name ess-history-file ess-history-directory)))
-  (add-hook 'ess-mode-hook #'ans/r-mode-settings)
+    (f-touch (expand-file-name ess-history-file ess-history-directory))
+    (company-prescient-mode -1))
+  (add-hook 'ess-r-mode-hook #'ans/r-mode-settings)
   ;; Enable outline mode, to allow code folding
   (add-hook 'ess-r-mode-hook #'outline-minor-mode)
   ;; Allow this to be set via dir-locals without complaint
@@ -177,3 +178,6 @@
         ;; "n" #'ess-noweb-next-chunk
         )
   )
+
+(after! ess-r-mode
+  (apply #'set-company-backend! 'ess-r-mode (car ess-r-company-backends)))

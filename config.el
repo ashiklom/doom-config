@@ -74,3 +74,7 @@
   :commands (simpleclip-cut simpleclip-copy simpleclip-paste simpleclip-mode)
   :config
   (simpleclip-mode))
+
+;; Use company-prescient-mode globally, but not for all company-mode
+(remove-hook! 'company-mode-hook #'company-prescient-mode)
+(add-hook! 'global-company-mode-hook #'company-prescient-mode)
