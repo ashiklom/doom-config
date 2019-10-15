@@ -59,6 +59,16 @@ source(.esstmpfile, echo = TRUE)
     (deactivate-mark)))
 
 ;;;###autoload
+(defun ans/r-send-paragraph-and-down ()
+  "Send current paragraph."
+  (interactive)
+  (mark-paragraph)
+  (ans/r-send-region-source (point) (mark))
+  (exchange-point-and-mark)
+  (deactivate-mark)
+  (ess-next-code-line))
+
+;;;###autoload
 (defun ans/r-send-line-and-down ()
   "Send current line to R and advance one line down."
   (interactive)
