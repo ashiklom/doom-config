@@ -88,4 +88,17 @@
 
       (:map outline-minor-mode-map
         :desc "Close all" :n "z0" #'outline-hide-body
-        :desc "Open all" :n "z*" #'outline-show-all))
+        :desc "Open all" :n "z*" #'outline-show-all)
+
+      ;; Mimicing my ESS bindings
+      (:map python-mode-map
+        (:localleader
+          :desc "Run Python" :n "rf" #'+python/open-ipython-repl
+          :desc "Send defun" :n "l" #'python-shell-send-defun
+          :desc "Send buffer" :n "aa" #'python-shell-send-buffer
+          :desc "Prnt symbol" :n "rp" #'ans/python-print-symbol-at-point
+
+          :desc "Send region" :v "ss" #'python-shell-send-region))
+
+      (:map inferior-python-mode-map
+        :g "C-c C-z" #'evil-window-mru))

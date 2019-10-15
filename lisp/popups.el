@@ -10,10 +10,11 @@
             ;; "Time to live"
             :ttl 5))
 
-;; ESS buffers
+;; ESS or Python inferior buffers
 (set-popup-rule!
-  (rx string-start "*" (or "R" "julia") (any "*" ":"))
+  (rx string-start "*" (or "R" "julia" "Python") (any "*" ":" "["))
   ;; Only quit these manually
+  :height 0.2
   :quit nil
   :slot 2
   :select nil)
