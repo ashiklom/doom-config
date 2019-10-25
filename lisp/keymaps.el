@@ -14,6 +14,10 @@
       :n "gb" #'evil-next-buffer
       :n "gB" #'evil-prev-buffer
 
+      ;; Most recently used workspace
+      :n "gt" #'+workspace/other
+      :n "gT" #'+workspace/other
+
       :desc "Eval defun" :m "g RET" #'eval-defun
 
       :i "C-l" #'+company/complete
