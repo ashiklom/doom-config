@@ -27,7 +27,7 @@
       (org-agenda-redo))
     (message "%s SCHEDULED/DEADLINE tasks" (if ans/hide-scheduled-tasks "Hide" "Show")))
   (setq org-agenda-custom-commands
-        '((" " "Agenda"
+        '(("o" "Agenda"
            ((agenda "" nil)
             (tags "REFILE"
                   ((org-agenda-overriding-header "Notes to Refile")
@@ -47,12 +47,17 @@
                          (concat "Hector" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "rcmip_hector-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "RCMIP-Hector" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "pecan-_project/-NEXT!"
                        ((org-agenda-overriding-header
                          (concat "PEcAn" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "-REFILE-config-reading_list-_project-_organization-forte-hector-pecan/-NEXT!"
+            (tags-todo "-REFILE-config-reading_list-_project-_organization-forte-hector-rcmip_hector-pecan/-NEXT!"
                        ((org-agenda-overriding-header (concat "Other tasks"
                                                               (if ans/hide-scheduled-tasks
                                                                   ""
