@@ -28,6 +28,7 @@
 (load! "lisp/org")
 (load! "lisp/bibtex")
 (load! "lisp/popups")
+(load! "lisp/python")
 
 ;; Deadgrep
 (use-package! deadgrep

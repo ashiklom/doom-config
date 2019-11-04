@@ -100,7 +100,8 @@
           :desc "Run Python" :n "rf" #'+python/open-ipython-repl
           :desc "Send defun" :n "l" #'python-shell-send-defun
           :desc "Send buffer" :n "aa" #'python-shell-send-buffer
-          :desc "Prnt symbol" :n "rp" #'ans/python-print-symbol-at-point
+          :desc "Print symbol" :n "rp" #'ans/python-print-symbol-at-point
+          :desc "Send paragraph" :n "pp" #'ans/python-send-paragraph
 
           :desc "Send region" :v "ss" #'python-shell-send-region))
 
