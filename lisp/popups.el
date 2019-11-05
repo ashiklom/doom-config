@@ -14,7 +14,7 @@
 (set-popup-rule!
   (rx string-start "*" (or "R" "julia" "Python") (any "*" ":" "["))
   ;; Only quit these manually
-  :height 0.2
+  :height 0.3
   :quit nil
   :slot 2
   :select nil)
