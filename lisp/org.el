@@ -27,6 +27,7 @@
     (when (equal major-mode 'org-agenda-mode)
       (org-agenda-redo))
     (message "%s SCHEDULED/DEADLINE tasks" (if ans/hide-scheduled-tasks "Hide" "Show")))
+  (setq org-agenda-span 21)
   (setq org-agenda-custom-commands
         '(("o" "Agenda"
            ((agenda "" nil)
