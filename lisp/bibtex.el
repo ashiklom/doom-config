@@ -69,7 +69,10 @@
   (setq org-ref-bibliography-notes ans/reference-notes
         reftex-default-bibliography (list ans/reference-bibfile)
         org-ref-default-bibliography (list ans/reference-bibfile)
-        org-ref-pdf-directory ans/reference-pdfs))
+        org-ref-pdf-directory ans/reference-pdfs
+        ;; This is a huge performance bottleneck if enabled.
+        ;; Can quickly view broken links with `M-x org-ref'
+        org-ref-show-broken-links nil))
 
 (defun ans/hsplit-frame ()
   "Split window entirely below the current frame."
