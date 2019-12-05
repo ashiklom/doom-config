@@ -76,7 +76,8 @@
         :desc "Diff hunk" "d" #'git-gutter:popup-hunk)
 
       (:map doom-leader-buffer-map
-        :desc "Erase buffer" "DEL" #'erase-buffer)
+        :desc "Erase buffer" "DEL" #'erase-buffer
+        :desc "Chmod" "c" #'ans/chmod-this-file)
 
       (:map ctbl:table-mode-map
         :n "q" #'doom/escape

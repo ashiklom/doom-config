@@ -47,3 +47,8 @@
          (cell (ctbl:cp-get-selected cp))
          (j (cdr cell)))
     (ctbl:cmodel-sort-action cp j)))
+
+(defun ans/chmod-this-file ()
+  "Set the mode of the current file"
+  (interactive)
+  (chmod (buffer-file-name) (read-file-modes)))
