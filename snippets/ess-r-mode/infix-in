@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: infix-in
+# uuid: infix-in
+# key: in
+# condition: t
+# --
+%in%
