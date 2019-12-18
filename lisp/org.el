@@ -164,17 +164,13 @@
 
   (add-hook 'org-export-before-processing-hook #'ans/org-remove-headlines)
 
-  (map! :map doom-leader-open-map
-        (:prefix-map ("c" . "clock")
-          :desc "Punch in" "+" #'ans/punch-in
-          :desc "Punch out" "-" #'ans/punch-out
-          :desc "Go-to" "g" #'org-clock-goto
-          :desc "History" "h" #'ans/org-clock-history
-          :desc "Clock out" "DEL" #'org-clock-out))
-
   (map! :map doom-leader-notes-map
         :desc "Reveal" "TAB" #'org-reveal
-        :desc "Ivy bibtex" "b" #'ivy-bibtex)
+        :desc "Ivy bibtex" "b" #'ivy-bibtex
+        :desc "History" "H" #'ans/org-clock-history
+        :desc "Punch in" "+" #'ans/punch-in
+        :desc "Punch out" "-" #'ans/punch-out
+        :desc "Clock out" "DEL" #'org-clock-out)
 
   (map! :map org-agenda-mode-map
         :m :desc "Log mode" "@l" #'org-agenda-log-mode
