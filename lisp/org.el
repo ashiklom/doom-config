@@ -167,7 +167,7 @@
   (map! :map doom-leader-notes-map
         :desc "Reveal" "TAB" #'org-reveal
         :desc "Ivy bibtex" "b" #'ivy-bibtex
-        :desc "History" "H" #'ans/org-clock-history
+        :desc "Clock history" "h" #'ans/org-clock-history
         :desc "Punch in" "+" #'ans/punch-in
         :desc "Punch out" "-" #'ans/punch-out
         :desc "Clock out" "DEL" #'org-clock-out)
