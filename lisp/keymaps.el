@@ -34,7 +34,7 @@
       (:leader
         :desc "Org capture" "X" #'ans/org-capture
         :desc "Shell command" "!" #'shell-command
-        :desc "Redraw frame" "&" (lambda! (redraw-frame))
+        :desc "Redraw display" "&" #'redraw-display
         :desc "Toggle smartparens" ")" #'smartparens-mode
         :desc "Toggle visual lines" "$" #'visual-line-mode
         "x" nil
