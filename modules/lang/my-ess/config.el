@@ -27,6 +27,9 @@
   ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
   (add-hook 'ess-mode-hook 'turn-off-smartparens-mode)
+  (add-hook! 'ess-r-mode-hook
+    (setq +default-newline-indent-continue-comments nil)
+    (setq comment-line-break-function nil))
   ;; Common ESS settings
   (setq ess-eval-visibly 'nowait
         ess-fill-calls-newlines t
@@ -114,6 +117,8 @@
             :v "ss" #'ess-eval-region))
        
         (:map ess-r-mode-map
+          :i "RET" #'ess-roxy-newline-and-indent
+          :i [C-return] #'+default/newline
           (:localleader
             :n "r f" #'ess-switch-process
             ;; Built-in versions of these commands
