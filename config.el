@@ -17,6 +17,10 @@
 
 (setq display-line-numbers-type nil)
 
+;; This is large to accommodate many ivy actions
+;; For some reason, multiple columns of actions doesn't work...
+(setq max-mini-window-height 0.75)
+
 ;; Diary -- mostly, to prevent errors about this file not existing
 (setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
 
