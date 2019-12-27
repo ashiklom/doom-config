@@ -27,9 +27,7 @@
   ;; Smartparens mode conflicts with electric pair mode
   (add-hook 'ess-mode-hook 'electric-pair-mode)
   (add-hook 'ess-mode-hook 'turn-off-smartparens-mode)
-  (add-hook! 'ess-r-mode-hook
-    (setq +default-newline-indent-continue-comments nil)
-    (setq comment-line-break-function nil))
+  (setq-hook! 'ess-r-mode-hook comment-line-break-function nil)
   ;; Common ESS settings
   (setq ess-eval-visibly 'nowait
         ess-fill-calls-newlines t
