@@ -2,10 +2,6 @@
 
 ;; Place your private configuration here
 
-;; Workaround for modeline error:
-;; https://github.com/hlissner/doom-emacs/issues/2135#issuecomment-560304567
-(fset 'battery-update #'ignore)
-
 (setq user-full-name "Alexey Shiklomanov"
       user-mail-address "alexey.shiklomanov@gmail.com")
 
