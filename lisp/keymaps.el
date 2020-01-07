@@ -107,4 +107,7 @@
           :desc "Send region" :v "ss" #'python-shell-send-region))
 
       (:map inferior-python-mode-map
-        :g "C-c C-z" #'evil-window-mru))
+        :g "C-c C-z" #'evil-window-mru)
+
+      (:map magit-mode-map
+        :nv "%" #'magit-worktree))
