@@ -86,3 +86,6 @@
 
 ;; CSV mode should not wrap
 (add-hook! 'csv-mode-hook (toggle-truncate-lines 1))
+
+;; Focusing a frame should redraw it automatically
+(add-hook! 'focus-in-hook #'redraw-display)
