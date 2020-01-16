@@ -45,6 +45,10 @@
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
 
+       :checkers
+       syntax		 ; tasing you for every semicolon you forget
+       spell	         ; tasing you for misspelling mispelling
+
        :editor
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
@@ -80,9 +84,7 @@
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        eval              ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
        ;;gist              ; interacting with github gists
-       flyspell          ; tasing you for misspelling mispelling
        (lookup           ; helps you navigate your code and documentation
         +docsets)        ; ...or in Dash docsets locally
        lsp
