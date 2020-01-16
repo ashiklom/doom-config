@@ -33,7 +33,8 @@
         ess-fill-calls-newlines t
         ess-nuke-trailing-whitespace-p t
         ess-use-flymake (not (featurep! :tools flycheck))
-        comint-move-point-for-output t)
+        comint-move-point-for-output t
+        ess-auto-width 'window)
   (defun ans/r-mode-settings ()
     "Custom R mode configurations."
     (setq ess-offset-continued 'straight
