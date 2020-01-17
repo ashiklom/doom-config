@@ -171,6 +171,9 @@
           :i "M-f" (lambda! (insert " %<-%"))
           :i "C-'" (lambda! (insert "#'")))
 
+        (:map ess-r-package-dev-map
+          :g "C" #'ans/ess-compile-attributes)
+
         ;; Old bindings
         ;; noweb
         ;; :prefix "c"
