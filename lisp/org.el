@@ -81,13 +81,13 @@
            "** TODO %?" :clock-in t :clock-resume t)
           ("t" "TODO" entry
            (file "~/Dropbox/Notes/unsorted.org")
-           "* TODO %?\nCaptured %U\nFrom file %a\n" :clock-in t :clock-keep t)
+           "* TODO %?\nCaptured %U\n" :clock-in t :clock-keep t)
           ("l" "Later TODO" entry
            (file "~/Dropbox/Notes/unsorted.org")
-           "* TODO %?\nCaptured %U\nFrom file %a\n" :clock-in t :clock-resume t)
+           "* TODO %?\nCaptured %U\n" :clock-in t :clock-resume t)
           ("u" "Miscellaneous note" entry
            (file "~/Dropbox/Notes/unsorted.org")
-           "* %? :NOTE:\nCaptured %U\n%a\n" :clock-in t :clock-resume t)
+           "* %? :NOTE:\nCaptured %U\n" :clock-in t :clock-resume t)
           ("i" "Interruption" entry (file "~/Dropbox/Notes/unsorted.org")
            "* %? \nCaptured %U" :clock-in t :clock-resume t)
           ("c" "No-clock note" entry
