@@ -50,7 +50,9 @@
 (use-package! markdown-mode
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
-  (remove-hook! 'markdown-mode-hook 'auto-fill-mode))
+  (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
+  (remove-hook! 'gfm-mode-hook #'+lookup--init-gfm-mode-handlers-h)
+  (add-hook! (markdown-mode gfm-mode) #'smartparens-mode))
 
 (use-package! multi-line
   :config
