@@ -4,6 +4,13 @@
 (use-package! poly-markdown
   :commands (poly-markdown-mode)
   :config
+  (defhydra ans/chunk-hydra (:exit t)
+    "Insert chunks."
+    ("`" (ans/insert-chunk-and-enter "") "Plain")
+    ("r" (ans/insert-chunk-and-enter "{r}") "R (knitr)")
+    ("R" (ans/insert-chunk-and-enter "r") "R (plain)")
+    ("-" ans/poly-split-chunk-here "Split")
+    ("SPC" polymode-toggle-chunk-narrowing))
   (map! :map poly-markdown-mode-map
         :localleader
         :n "P" #'ans/toggle-poly-markdown-mode
@@ -28,11 +35,3 @@
   (map! :map markdown-mode-map
         :localleader
         :desc "Polymode" :n "P" #'poly-markdown-mode))
-
-(defhydra ans/chunk-hydra (:exit t)
-  "Insert chunks."
-  ("`" (ans/insert-chunk-and-enter "") "Plain")
-  ("r" (ans/insert-chunk-and-enter "{r}") "R (knitr)")
-  ("R" (ans/insert-chunk-and-enter "r") "R (plain)")
-  ("-" ans/poly-split-chunk-here "Split")
-  ("SPC" polymode-toggle-chunk-narrowing))
