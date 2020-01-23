@@ -51,7 +51,7 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
-  (add-hook! (markdown-mode gfm-mode) #'smartparens-mode (electric-indent-mode -1)))
+  (add-hook! (markdown-mode gfm-mode) #'smartparens-mode (lambda () (electric-indent-mode -1))))
 
 (use-package! multi-line
   :config
@@ -72,7 +72,7 @@
 (add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))
 
 ;; Disable smartparens mode in these modes because of interference with electric pairs mode
-(add-hook! '(markdown-mode-hook nxml-mode-hook) (smartparens-mode -1))
+(add-hook! '(nxml-mode-hook) (smartparens-mode -1))
 
 (put 'erase-buffer 'disabled nil)
 
