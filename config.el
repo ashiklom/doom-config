@@ -68,6 +68,15 @@
   ;; Allow this to be set via dir-locals without complaint
   (put 'projectile-project-compilation-cmd 'safe-local-variable #'stringp))
 
+;; https://github.com/abo-abo/swiper/issues/2397
+(use-package! ivy-hydra
+  :init
+  (autoload #'ivy-hydra-read-action "ivy-hydra"))
+
+(use-package! ivy
+  :config
+  (setq ivy-read-action-function #'ivy-hydra-read-action))
+
 ;; Automatically soft-wrap lines in text modes
 (add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))
 
