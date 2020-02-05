@@ -51,7 +51,13 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
-  (add-hook! (markdown-mode gfm-mode) #'smartparens-mode (lambda () (electric-indent-mode -1))))
+  (add-hook! (markdown-mode gfm-mode) #'turn-off-smartparens-mode (lambda () (electric-indent-mode -1)))
+  (map! (:map evil-markdown-mode-map
+     :i "C-t" #'evil-shift-right-line
+     :i "C-d" #'evil-shift-left-line
+     :i "C-?" #'ivy-bibtex
+     :n "j" #'evil-next-visual-line
+     :n "k" #'evil-previous-visual-line)))
 
 (use-package! multi-line
   :config
