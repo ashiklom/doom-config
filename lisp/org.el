@@ -179,7 +179,9 @@
         :m :desc "Month view" "@m" #'org-agenda-month-view)
 
   (map! :map evil-org-mode-map
-        :n "z n" #'org-toggle-narrow-to-subtree))
+        :n "z n" #'org-toggle-narrow-to-subtree
+        :nv "j" #'evil-next-visual-line
+        :nv "k" #'evil-previous-visual-line))
 
 ;; Override counsel-org-capture. For some reason, just mapping directly fails.
 (defun ans/org-capture ()

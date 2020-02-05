@@ -56,8 +56,8 @@
      :i "C-t" #'evil-shift-right-line
      :i "C-d" #'evil-shift-left-line
      :i "C-?" #'ivy-bibtex
-     :n "j" #'evil-next-visual-line
-     :n "k" #'evil-previous-visual-line)))
+     :nv "j" #'evil-next-visual-line
+     :nv "k" #'evil-previous-visual-line)))
 
 (use-package! multi-line
   :config
