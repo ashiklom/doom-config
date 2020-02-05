@@ -176,6 +176,9 @@
         (:map ess-r-package-dev-map
           :g "C" #'ans/ess-compile-attributes)
 
+        (:map inferior-ess-mode-map
+          :n "C-y" #'evil-scroll-line-up)
+
         ;; Old bindings
         ;; noweb
         ;; :prefix "c"
