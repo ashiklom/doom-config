@@ -51,7 +51,8 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
-  (add-hook! (markdown-mode gfm-mode) #'turn-off-smartparens-mode (lambda () (electric-indent-mode -1)))
+  (add-hook! (markdown-mode gfm-mode) #'turn-off-smartparens-mode)
+  (setq-hook! (markdown-mode gfm-mode) electric-indent-chars nil)
   (map! (:map evil-markdown-mode-map
      :i "C-t" #'evil-shift-right-line
      :i "C-d" #'evil-shift-left-line
