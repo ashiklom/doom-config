@@ -201,7 +201,7 @@
   "Use here::here to determine path for R buffer."
   (shell-command-to-string
    (concat
-    "/usr/local/bin/Rscript -e \""
+    "Rscript -e \""
     "my_dir <- dirname('"(buffer-file-name)"');"
     "t <- tryCatch(setwd(my_dir), error = function(e) NULL);"
     "cat(here::here())"
