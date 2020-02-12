@@ -1,7 +1,10 @@
 ;;; lang/ess/config.el -*- lexical-binding: t; -*-
 
+(after! projectile
+  (add-to-list 'projectile-project-root-files "DESCRIPTION"))
+
 (use-package! ess
-  :commands (stata SAS)
+  :commands stata SAS
   :mode (("\\.Rprofile\\'" . ess-r-mode)
          ("\\.[Rr]\\'" . ess-r-mode))
   :init
