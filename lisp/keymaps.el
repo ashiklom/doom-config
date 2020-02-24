@@ -107,7 +107,26 @@
           :desc "Send region" :v "ss" #'python-shell-send-region))
 
       (:map inferior-python-mode-map
-        :g "C-c C-z" #'evil-window-mru))
+        :g "C-c C-z" #'evil-window-mru)
+
+      (:map doom-leader-notes-map
+        :desc "Reveal" "TAB" #'org-reveal
+        :desc "Ivy bibtex" "b" #'ivy-bibtex
+        :desc "Clock history" "h" #'ans/org-clock-history
+        :desc "Punch in" "+" #'ans/punch-in
+        :desc "Punch out" "-" #'ans/punch-out
+        :desc "Clock out" "DEL" #'org-clock-out)
+
+      (:map org-agenda-mode-map
+        :m :desc "Log mode" "@l" #'org-agenda-log-mode
+        :m :desc "Day view" "@d" #'org-agenda-day-view
+        :m :desc "Week view" "@w" #'org-agenda-week-view
+        :m :desc "Month view" "@m" #'org-agenda-month-view)
+
+      (:map evil-org-mode-map
+        :n "z n" #'org-toggle-narrow-to-subtree
+        :nv "j" #'evil-next-visual-line
+        :nv "k" #'evil-previous-visual-line))
 
 (use-package! evil-magit
   :config
