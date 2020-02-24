@@ -3,7 +3,7 @@
 ;;  Related to bibtex references
 (defvar ans/reference-dir (file-name-as-directory (concat ans/dropbox-dir "references"))
   "Root directory for storing my bibliography.")
-(defvar ans/reference-bibfile "~/Documents/zotero-library.bib"
+(defvar ans/reference-bibfile "~/Dropbox/references/zotero-library.bib"
   "Main bibliography file.")
 (defvar ans/reference-notes (concat ans/reference-dir "notes.org")
   "References notes file.")
