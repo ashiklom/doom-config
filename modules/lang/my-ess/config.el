@@ -44,7 +44,7 @@
     "Custom R mode configurations."
     (setq ess-offset-continued 'straight
           ess-ask-for-ess-directory nil
-          ess-directory-function #'ans-r-file-here
+          ess-directory-function #'projectile-project-root
           ess-style 'RStudio
           ess-history-directory (expand-file-name "ess-history/" doom-cache-dir)
           ess-history-file ".Rhistory"
