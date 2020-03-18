@@ -123,10 +123,12 @@
         :m :desc "Week view" "@w" #'org-agenda-week-view
         :m :desc "Month view" "@m" #'org-agenda-month-view)
 
+      (:map (text-mode-map evil-org-mode-map)
+        :nvm "j" #'evil-next-visual-line
+        :nvm "k" #'evil-previous-visual-line)
+
       (:map evil-org-mode-map
-        :n "z n" #'org-toggle-narrow-to-subtree
-        :nv "j" #'evil-next-visual-line
-        :nv "k" #'evil-previous-visual-line))
+        :n "z n" #'org-toggle-narrow-to-subtree))
 
 (use-package! evil-magit
   :config
