@@ -37,7 +37,7 @@
   (setq ess-eval-visibly 'nowait
         ess-fill-calls-newlines t
         ess-nuke-trailing-whitespace-p t
-        ess-use-flymake (not (featurep! :tools flycheck))
+        ess-use-flymake nil
         comint-move-point-for-output t
         ess-auto-width 'window)
   (defun ans/r-mode-settings ()
