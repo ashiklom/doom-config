@@ -25,6 +25,8 @@
       :i "C-s" (lambda! (upcase-word -1))
       :i "s-k" #'evil-insert-digraph
 
+      :i "C-." #'doom/dumb-indent
+
       :g "M-0" nil
 
       :g "s-c" #'simpleclip-copy
