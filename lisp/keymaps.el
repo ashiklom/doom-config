@@ -139,6 +139,9 @@
           :n :desc "Send line" "l" #'julia-repl-send-line
           :n :desc "Send buffer" "aa" #'julia-repl-send-buffer
           :n :desc "Help on object" "hh" #'julia-repl-doc
+          :n :desc "Print object" "rp" (lambda! (julia-repl--send-string (thing-at-point 'symbol t)))
+          :n :desc "Size of object" "rs" (lambda! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Type of object" "rt" (lambda! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
 
 (use-package! evil-magit
