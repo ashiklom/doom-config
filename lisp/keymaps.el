@@ -134,6 +134,8 @@
 
       (:map julia-mode-map
         (:localleader
+          :n :desc "Start julia" "rf" #'julia-repl
+          :n :desc "Quit" "rq" (lambda! (julia-repl--send-string "exit()"))
           :n :desc "Send line" "l" #'julia-repl-send-line
           :n :desc "Send buffer" "aa" #'julia-repl-send-buffer
           :n :desc "Help on object" "hh" #'julia-repl-doc
