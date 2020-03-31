@@ -100,26 +100,6 @@
             :n "cd" #'ess-use-this-dir
             :n "cD" #'ess-use-dir))
 
-        (:map ess-julia-mode-map
-          (:localleader
-            "rf" #'julia
-            [tab]     #'ess-switch-to-inferior-or-script-buffer
-            [backtab] #'ess-switch-process
-            ;; REPL
-            "," #'ess-eval-region-or-function-or-paragraph-and-step
-            "B" #'ess-eval-buffer-and-go
-            "b" #'ess-eval-buffer
-            "d" #'ess-eval-region-or-line-and-step
-            "D" #'ess-eval-function-or-paragraph-and-step
-            "L" #'ess-eval-line-and-go
-            "l" #'ess-eval-line
-            "R" #'ess-eval-region-and-go
-            "F" #'ess-eval-function-and-go
-            "f" #'ess-eval-function
-            "pp" #'ess-eval-paragraph
-            "pd" #'ess-eval-paragraph-and-go
-            :v "ss" #'ess-eval-region))
-       
         (:map ess-r-mode-map
           :i "RET" #'ess-roxy-newline-and-indent
           :i [C-return] #'+default/newline

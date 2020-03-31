@@ -130,7 +130,14 @@
         :nvm "k" #'evil-previous-visual-line)
 
       (:map evil-org-mode-map
-        :n "z n" #'org-toggle-narrow-to-subtree))
+        :n "z n" #'org-toggle-narrow-to-subtree)
+
+      (:map julia-mode-map
+        (:localleader
+          :n :desc "Send line" "l" #'julia-repl-send-line
+          :n :desc "Send buffer" "aa" #'julia-repl-send-buffer
+          :n :desc "Help on object" "hh" #'julia-repl-doc
+          :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
 
 (use-package! evil-magit
   :config
