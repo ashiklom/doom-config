@@ -136,12 +136,17 @@
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
           :n :desc "Quit" "rq" (lambda! (julia-repl--send-string "exit()"))
-          :n :desc "Send line" "l" #'julia-repl-send-line
+          :n :desc "Send line" "l" (lambda! (save-excursion (julia-repl-send-line)))
+          :n :desc "Send line and down" "d" #'julia-repl-send-line
           :n :desc "Send buffer" "aa" #'julia-repl-send-buffer
           :n :desc "Help on object" "hh" #'julia-repl-doc
           :n :desc "Print object" "rp" (lambda! (julia-repl--send-string (thing-at-point 'symbol t)))
           :n :desc "Size of object" "rs" (lambda! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
           :n :desc "Type of object" "rt" (lambda! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Send paragraph" "pp" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)))
+          :n :desc "Send paragraph" "pd" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)) (evil-forward-paragraph))
+          :n :desc "Send function" "ff" (lambda! (save-excursion (mark-defun) (julia-repl-send-region-or-line)))
+          :n :desc "Change directory" "cd" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)))
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
 
 (use-package! evil-magit
