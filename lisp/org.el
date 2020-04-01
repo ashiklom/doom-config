@@ -40,6 +40,16 @@
                          (concat "Next tasks" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "sbg_uncertainty-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "SBG Uncertainty" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "roses_2020-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "ROSES 2020" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "forte-_project/-NEXT!"
                        ((org-agenda-overriding-header
                          (concat "FoRTE" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
@@ -55,12 +65,27 @@
                          (concat "RCMIP-Hector" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "prospect_traits-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "PROSPECT paper" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "edr_pda-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "EDR DA paper" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "pecan-_project/-NEXT!"
                        ((org-agenda-overriding-header
                          (concat "PEcAn" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "-REFILE-config-reading_list-_project-_organization-forte-hector-rcmip_hector-pecan/-NEXT!"
+            (tags-todo
+             (concat "-REFILE" "-config" "-reading_list" "-_project" "-_organization"
+                     "-sbg_uncertainty" "-roses_2020"
+                     "-forte" "-hector" "-rcmip_hector"
+                     "-prospect_traits" "-edr_pda" "-pecan"
+                     "/-NEXT!")
                        ((org-agenda-overriding-header (concat "Other tasks"
                                                               (if ans/hide-scheduled-tasks
                                                                   ""
