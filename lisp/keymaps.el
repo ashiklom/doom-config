@@ -132,22 +132,25 @@
       (:map evil-org-mode-map
         :n "z n" #'org-toggle-narrow-to-subtree)
 
+      ;; Using iTerm
       (:map julia-mode-map
         (:localleader
-          :n :desc "Start julia" "rf" #'julia-repl
-          :n :desc "Quit" "rq" (lambda! (julia-repl--send-string "exit()"))
-          :n :desc "Send line" "l" (lambda! (save-excursion (julia-repl-send-line)))
-          :n :desc "Send line and down" "d" #'julia-repl-send-line
-          :n :desc "Send buffer" "aa" #'julia-repl-send-buffer
-          :n :desc "Help on object" "hh" #'julia-repl-doc
-          :n :desc "Print object" "rp" (lambda! (julia-repl--send-string (thing-at-point 'symbol t)))
-          :n :desc "Size of object" "rs" (lambda! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
-          :n :desc "Type of object" "rt" (lambda! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
-          :n :desc "Send paragraph" "pp" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)))
-          :n :desc "Send paragraph" "pd" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)) (evil-forward-paragraph))
-          :n :desc "Send function" "ff" (lambda! (save-excursion (mark-defun) (julia-repl-send-region-or-line)))
-          :n :desc "Change directory" "cd" (lambda! (save-excursion (mark-paragraph) (julia-repl-send-region-or-line)))
-          :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
+          :n :desc "Start julia" "rf" (lambda! (iterm-send-string "julia"))
+          :n :desc "Quit" "rq" (lambda! (iterm-send-string "exit()"))
+          :n :desc "Send line" "l" #'iterm-send-line
+          :n :desc "Send line and down" "d" (lambda! (iterm-send-line) (evil-next-line))
+          :n :desc "Send buffer" "aa" (lambda! (iterm-send-string (format "include('%s')" (buffer-file-name))))
+          :n :desc "Help on object" "hh" (lambda! (iterm-send-string (format "@doc %s" (thing-at-point 'symbol t))))
+          :n :desc "Print object" "rp" (lambda! (iterm-send-string (thing-at-point 'symbol t)))
+          :n :desc "Size of object" "rs" (lambda! (iterm-send-string (format "size(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Type of object" "rt" (lambda! (iterm-send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Send paragraph" "pp" #'iterm-send-paragraph
+          :n :desc "Send paragraph and down" "pd" (lambda! (iterm-send-paragraph) (evil-forward-paragraph))
+          :n :desc "Send function" "ff" (lambda! (save-excursion (mark-defun) (iterm-send-region (point) (mark)) (deactivate-mark)))
+          :n :desc "Change to file directory" "cd"
+          (lambda! (iterm-send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
+          :n :desc "Change up one directory" "c." (lambda! (iterm-send-string "cd(\"..\")"))
+          :v :desc "Send region" "ss" #'iterm-send-region)))
 
 (use-package! evil-magit
   :config

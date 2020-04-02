@@ -33,6 +33,7 @@
 (load! "lisp/bibtex")
 (load! "lisp/popups")
 (load! "lisp/python")
+(load! "lisp/iterm")
 
 ;; Deadgrep
 (use-package! deadgrep
