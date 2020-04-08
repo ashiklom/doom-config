@@ -24,6 +24,13 @@
 ;; Diary -- mostly, to prevent errors about this file not existing
 (setq diary-file (concat ans/dropbox-dir "Notes/journal/diary"))
 
+;; Julia configuration
+(use-package! lsp-julia
+  :init
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.4"
+        lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver")
+  :hook ((julia-mode . lsp-deferred)))
+
 (evil-ex-define-cmd "rename" 'rename-this-buffer-and-file)
 (evil-ex-define-cmd "dkill" #'ans/delete-file-and-buffer)
 
