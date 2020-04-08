@@ -101,7 +101,8 @@
       (:map python-mode-map
         (:localleader
           :desc "Run Python" :n "rf" #'+python/open-ipython-repl
-          :desc "Send defun" :n "l" #'python-shell-send-defun
+          :desc "Send defun" :n "ff" #'python-shell-send-defun
+          :desc "Send line" :n "l" (lambda! (python-shell-send-string (thing-at-point 'line t)))
           :desc "Send buffer" :n "aa" #'python-shell-send-buffer
           :desc "Print symbol" :n "rp" #'ans/python-print-symbol-at-point
           :desc "Send paragraph" :n "pp" #'ans/python-send-paragraph
