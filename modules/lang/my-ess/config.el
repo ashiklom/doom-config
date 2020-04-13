@@ -7,9 +7,6 @@
   :commands stata SAS
   :mode (("\\.Rprofile\\'" . ess-r-mode)
          ("\\.[Rr]\\'" . ess-r-mode))
-  :init
-  (unless (featurep! :lang julia)
-    (add-to-list 'auto-mode-alist '("\\.jl\\'" . ess-julia-mode)))
   :custom
   (ess-R-font-lock-keywords
    '((ess-R-fl-keyword:fun-calls . t)
