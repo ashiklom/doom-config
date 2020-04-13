@@ -126,7 +126,7 @@
         :m :desc "Week view" "@w" #'org-agenda-week-view
         :m :desc "Month view" "@m" #'org-agenda-month-view)
 
-      (:map (text-mode-map evil-org-mode-map)
+      (:map (text-mode-map evil-org-mode-map LaTeX-mode-map)
         :nvm "j" #'evil-next-visual-line
         :nvm "k" #'evil-previous-visual-line)
 
