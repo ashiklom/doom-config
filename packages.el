@@ -12,7 +12,6 @@
 (package! pandoc-mode)
 (package! simpleclip)
 
-(package! flycheck :recipe (:host github :repo "flycheck/flycheck" :branch "cpitclaudel_fix-1634-file-truename"))
 (unpin! flycheck)
 
 (package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
