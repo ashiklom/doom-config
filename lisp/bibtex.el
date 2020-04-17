@@ -65,10 +65,12 @@
             :desc "URL" "u" #'org-ref-open-url-at-point))))
 
 (use-package! org-ref
+  :when (featurep! :lang org)
+  :after (org bibtex-completion)
   :config
   (setq org-ref-bibliography-notes ans/reference-notes
-        reftex-default-bibliography (list ans/reference-bibfile)
         org-ref-default-bibliography (list ans/reference-bibfile)
+        reftex-default-bibliography org-ref-default-bibliography
         org-ref-pdf-directory ans/reference-pdfs
         ;; This is a huge performance bottleneck if enabled.
         ;; Can quickly view broken links with `M-x org-ref'
