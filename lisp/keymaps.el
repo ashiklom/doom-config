@@ -140,7 +140,7 @@
           :n :desc "Quit" "rq" (lambda! (iterm-send-string "exit()"))
           :n :desc "Send line" "l" #'iterm-send-line
           :n :desc "Send line and down" "d" (lambda! (iterm-send-line) (evil-next-line))
-          :n :desc "Send buffer" "aa" (lambda! (iterm-send-string (format "include('%s')" (buffer-file-name))))
+          :n :desc "Send buffer" "aa" (lambda! (iterm-send-string (format "include(\"%s\")" (buffer-file-name))))
           :n :desc "Help on object" "hh" (lambda! (iterm-send-string (format "@doc %s" (thing-at-point 'symbol t))))
           :n :desc "Print object" "rp" (lambda! (iterm-send-string (thing-at-point 'symbol t)))
           :n :desc "Size of object" "rs" (lambda! (iterm-send-string (format "size(%s)" (thing-at-point 'symbol t))))
