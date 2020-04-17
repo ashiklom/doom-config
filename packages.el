@@ -16,3 +16,6 @@
 
 (package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
 (unpin! lsp-julia)
+
+(package! julia-repl :recipe (:host github :repo "tpapp/julia-repl" :branch "tp/terminal-backends"))
+(unpin! julia-repl)

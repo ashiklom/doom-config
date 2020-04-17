@@ -7,6 +7,10 @@
         lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver")
   :hook ((julia-mode . lsp-deferred)))
 
+(use-package! julia-repl
+  :config
+  (setq julia-repl-terminal-backend (make-julia-repl--buffer-vterm)))
+
 (defun ans/vterm-send-string (string &optional break)
   "Send STRING to julia vterm buffer. If BREAK, add a linebreak."
   (let* ((sendstring string))
