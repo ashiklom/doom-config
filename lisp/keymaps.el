@@ -136,22 +136,21 @@
       ;; Using iTerm
       (:map julia-mode-map
         (:localleader
-          :n :desc "Start julia" "rf" (lambda! (iterm-send-string "julia"))
-          :n :desc "Quit" "rq" (lambda! (iterm-send-string "exit()"))
-          :n :desc "Send line" "l" #'iterm-send-line
-          :n :desc "Send line and down" "d" (lambda! (iterm-send-line) (evil-next-line))
-          :n :desc "Send buffer" "aa" (lambda! (iterm-send-string (format "include(\"%s\")" (buffer-file-name))))
-          :n :desc "Help on object" "hh" (lambda! (iterm-send-string (format "@doc %s" (thing-at-point 'symbol t))))
-          :n :desc "Print object" "rp" (lambda! (iterm-send-string (thing-at-point 'symbol t)))
-          :n :desc "Size of object" "rs" (lambda! (iterm-send-string (format "size(%s)" (thing-at-point 'symbol t))))
-          :n :desc "Type of object" "rt" (lambda! (iterm-send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
-          :n :desc "Send paragraph" "pp" #'iterm-send-paragraph
-          :n :desc "Send paragraph and down" "pd" (lambda! (iterm-send-paragraph) (evil-forward-paragraph))
-          :n :desc "Send function" "ff" (lambda! (save-excursion (mark-defun) (iterm-send-region (point) (mark)) (deactivate-mark)))
-          :n :desc "Change to file directory" "cd"
-          (lambda! (iterm-send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
-          :n :desc "Change up one directory" "c." (lambda! (iterm-send-string "cd(\"..\")"))
-          :v :desc "Send region" "ss" #'iterm-send-region)))
+          :n :desc "Start julia" "rf" #'ans/julia-start
+          :n :desc "Quit" "rq" (lambda! (ans/vterm-send-string "exit()\n"))
+          :n :desc "Send line" "l" #'ans/vterm-send-line
+          :n :desc "Send line and down" "d" (lambda! (ans/vterm-send-line) (evil-next-line))
+          :n :desc "Send buffer" "aa" (lambda! (ans/vterm-send-string (format "include(\"%s\")" (buffer-file-name))))
+          :n :desc "Help on object" "hh" (lambda! (ans/vterm-send-string (format "@doc %s" (thing-at-point 'symbol t)) t))
+          :n :desc "Print object" "rp" (lambda! (ans/vterm-send-string (thing-at-point 'symbol t) t))
+          :n :desc "Size of object" "rs" (lambda! (ans/vterm-send-string (format "size(%s)" (thing-at-point 'symbol t)) t))
+          :n :desc "Type of object" "rt" (lambda! (ans/vterm-send-string (format "typeof(%s)" (thing-at-point 'symbol t)) t))
+          :n :desc "Send paragraph" "pp" #'ans/vterm-send-paragraph
+          :n :desc "Send paragraph and down" "pd" (lambda! (ans/vterm-send-paragraph) (evil-forward-paragraph))
+          :n :desc "Send function" "ff" (lambda! (save-excursion (mark-defun) (ans/vterm-send-region (point) (mark)) (deactivate-mark)))
+          :n :desc "Change to file directory" "cd" (lambda! (ans/vterm-send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name))) t))
+          :n :desc "Change up one directory" "c." (lambda! (ans/vterm-send-string "cd(\"..\")" t))
+          :v :desc "Send region" "ss" #'ans/vterm-send-region)))
 
 (use-package! evil-magit
   :config
