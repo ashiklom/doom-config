@@ -12,7 +12,7 @@
 
 ;; ESS or Python inferior buffers
 (set-popup-rule!
-  (rx string-start "*" (or "R" "julia" "Python") (any "*" ":" "["))
+  (rx string-start "*" (or "R" "julia" "julia:main" "Python") (any "*" ":" "["))
   ;; Only quit these manually
   :height 0.3
   :quit nil
