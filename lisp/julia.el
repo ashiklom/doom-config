@@ -11,6 +11,11 @@
   :config
   (setq julia-repl-terminal-backend (make-julia-repl--buffer-vterm)))
 
+(use-package! julia-mode
+  :mode "\\.jl\\'"
+  :config
+  (use-package vterm))
+
 (defun ans/julia-repl-send-paragraph ()
   "Send paragraph to iterm."
   (interactive)

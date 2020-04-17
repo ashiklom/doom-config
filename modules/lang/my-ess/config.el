@@ -4,6 +4,9 @@
   (add-to-list 'projectile-project-root-files "DESCRIPTION"))
 
 (use-package! ess
+  :init
+  ;; Prevent ESS from interfering with julia-mode
+  (setq auto-mode-alist (delete '("\\.jl\\'" . ess-julia-mode) auto-mode-alist))
   :commands stata SAS
   :mode (("\\.Rprofile\\'" . ess-r-mode)
          ("\\.[Rr]\\'" . ess-r-mode))

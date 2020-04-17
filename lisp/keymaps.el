@@ -137,7 +137,7 @@
       (:map julia-mode-map
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
-          :n :desc "Quit" "rq" (lambda! (ans/vterm-send-string "exit()\n"))
+          :n :desc "Quit" "rq" (lambda! (julia-repl--send-string "exit()"))
           :n :desc "Send line" "l" #'julia-repl-send-line
           :n :desc "Send line and down" "d" (lambda! (julia-repl-send-line) (evil-next-line))
           :n :desc "Send buffer" "aa" (lambda! (julia-repl--send-string (format "include(\"%s\")" (buffer-file-name))))
