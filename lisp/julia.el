@@ -14,7 +14,12 @@
 (use-package! julia-mode
   :mode "\\.jl\\'"
   :config
-  (use-package vterm))
+  (use-package vterm)
+  (set-popup-rule! "\\*julia.*\\*$"
+    :height 0.3
+    :quit nil
+    :slot 2
+    :select nil))
 
 (defun ans/julia-repl-send-paragraph ()
   "Send paragraph to iterm."

@@ -12,7 +12,9 @@
 
 ;; ESS or Python inferior buffers
 (set-popup-rule!
-  (rx string-start "*" (or "R" (group "julia" (optional ":" (0+ (any alnum)))) "Python") (any "*" ":" "["))
+  (rx string-start "*"
+      (or "R" "Python")
+      (any "*" ":" "["))
   ;; Only quit these manually
   :height 0.3
   :quit nil
