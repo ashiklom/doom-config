@@ -141,11 +141,12 @@
           :n :desc "Send line" "l" #'julia-repl-send-line
           :n :desc "Send line and down" "d" (lambda! (julia-repl-send-line) (evil-next-line))
           :n :desc "Send buffer" "aa" (lambda! (julia-repl--send-string (format "include(\"%s\")" (buffer-file-name))))
+          :n :desc "Send beginning to here" "as" (lambda! (julia-repl--send-string (buffer-substring-no-properties 1 (point))))
           :n :desc "Help on object" "hh" (lambda! (julia-repl--send-string (format "@doc %s" (thing-at-point 'symbol t))))
           :n :desc "Print object" "rp" (lambda! (julia-repl--send-string (thing-at-point 'symbol t)))
           :n :desc "Size of object" "rs" (lambda! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
           :n :desc "Type of object" "rt" (lambda! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
-
+          :n :desc "Send paragraph" "pp" #'ans/julia-repl-send-paragraph
           :n :desc "Send paragraph and down" "pd" (lambda! (ans/julia-repl-send-paragraph) (evil-forward-paragraph))
           :n :desc "Send function" "ff" #'ans/julia-repl-send-function
           :n :desc "Change to file directory" "cd" (lambda! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
