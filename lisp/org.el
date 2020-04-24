@@ -17,7 +17,8 @@
         org-refile-target-verify-function 'ans/verify-refile-target
         org-startup-indented t
         org-agenda-dim-blocked-tasks nil
-        org-imenu-depth 9)
+        org-imenu-depth 9
+        org-id-locations-file "~/.org/.orgids")
   (defun ans/verify-refile-target ()
     "Exclude TODO keywords with a done state from refile targets."
     (not (member (nth 2 (org-heading-components)) org-done-keywords)))
