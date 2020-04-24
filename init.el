@@ -87,7 +87,7 @@
        lookup           ; helps you navigate your code and documentation
        lsp
        macos             ; MacOS-specific commands
-       magit             ; a git porcelain for Emacs
+       (magit +forge)
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
