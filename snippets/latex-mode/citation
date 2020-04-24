@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: citation
+# uuid:
+# key: cite
+# condition: t
+# type: command
+# --
+(ivy-bibtex)
