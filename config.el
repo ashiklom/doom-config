@@ -35,6 +35,7 @@
 (load! "lisp/iterm")
 (load! "lisp/python")
 (load! "lisp/julia")
+(load! "lisp/stan")
 
 ;; Deadgrep
 (use-package! deadgrep

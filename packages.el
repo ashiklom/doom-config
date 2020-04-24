@@ -19,3 +19,8 @@
 
 (package! julia-repl :recipe (:host github :repo "tpapp/julia-repl" :branch "tp/terminal-backends"))
 (unpin! julia-repl)
+
+(package! stan-mode)
+(package! company-stan)
+(package! eldoc-stan)
+(package! flycheck-stan)
