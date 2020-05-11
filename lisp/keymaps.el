@@ -72,7 +72,8 @@
       (:map doom-leader-notes-map
         :desc "Org-capture" "c" #'ans/org-capture)
 
-      (:map doom-leader-search-map :desc "Deadgrep" "r" #'deadgrep)
+      (:map doom-leader-search-map
+       :desc "Deadgrep" "r" #'deadgrep)
 
       (:map doom-leader-git-map
         :desc "Diff hunk" "d" #'git-gutter:popup-hunk)
@@ -80,6 +81,9 @@
       (:map doom-leader-buffer-map
         :desc "Erase buffer" "DEL" #'erase-buffer
         :desc "Chmod" "c" #'ans/chmod-this-file)
+
+      (:map doom-leader-open-map
+       :desc "Open iTerm here" "I" #'+macos/open-in-iterm)
 
       (:map ctbl:table-mode-map
         :n "q" #'doom/escape
