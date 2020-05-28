@@ -21,8 +21,8 @@
       :desc "Eval defun" :m "g RET" #'eval-defun
 
       :i "C-l" #'+company/complete
-      :i "C-0" (lambda! (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
-      :i "C-s" (lambda! (upcase-word -1))
+      :i "C-0" (cmd! (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
+      :i "C-s" (cmd! (upcase-word -1))
       :i "s-k" #'evil-insert-digraph
 
       :i "C-." #'doom/dumb-indent
@@ -42,10 +42,10 @@
         "x" nil
         (:prefix-map ("x" . "scratch")
           :desc "Fundamental" "x" #'doom/open-scratch-buffer
-          :desc "R" "r" (lambda! (doom/open-scratch-buffer) (R-mode))
-          :desc "Lisp interaction" "l" (lambda! (doom/open-scratch-buffer) (lisp-interaction-mode))
-          :desc "Python" "p" (lambda! (doom/open-scratch-buffer) (python-mode))
-          :desc "Bash" "b" (lambda! (doom/open-scratch-buffer) (sh-mode))))
+          :desc "R" "r" (cmd! (doom/open-scratch-buffer) (R-mode))
+          :desc "Lisp interaction" "l" (cmd! (doom/open-scratch-buffer) (lisp-interaction-mode))
+          :desc "Python" "p" (cmd! (doom/open-scratch-buffer) (python-mode))
+          :desc "Bash" "b" (cmd! (doom/open-scratch-buffer) (sh-mode))))
 
       (:map evil-window-map
         "o" #'ace-window
@@ -106,7 +106,7 @@
         (:localleader
           :desc "Run Python" :n "rf" #'+python/open-ipython-repl
           :desc "Send defun" :n "ff" #'python-shell-send-defun
-          :desc "Send line" :n "l" (lambda! (python-shell-send-string (thing-at-point 'line t)))
+          :desc "Send line" :n "l" (cmd! (python-shell-send-string (thing-at-point 'line t)))
           :desc "Send buffer" :n "aa" #'python-shell-send-buffer
           :desc "Print symbol" :n "rp" #'ans/python-print-symbol-at-point
           :desc "Send paragraph" :n "pp" #'ans/python-send-paragraph
@@ -141,20 +141,20 @@
       (:map julia-mode-map
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
-          :n :desc "Quit" "rq" (lambda! (julia-repl--send-string "exit()"))
+          :n :desc "Quit" "rq" (cmd! (julia-repl--send-string "exit()"))
           :n :desc "Send line" "l" #'julia-repl-send-line
-          :n :desc "Send line and down" "d" (lambda! (julia-repl-send-line) (evil-next-line))
-          :n :desc "Send buffer" "aa" (lambda! (julia-repl--send-string (format "include(\"%s\")" (buffer-file-name))))
-          :n :desc "Send beginning to here" "as" (lambda! (julia-repl--send-string (buffer-substring-no-properties 1 (point))))
-          :n :desc "Help on object" "hh" (lambda! (julia-repl--send-string (format "@doc %s" (thing-at-point 'symbol t))))
-          :n :desc "Print object" "rp" (lambda! (julia-repl--send-string (thing-at-point 'symbol t)))
-          :n :desc "Size of object" "rs" (lambda! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
-          :n :desc "Type of object" "rt" (lambda! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Send line and down" "d" (cmd! (julia-repl-send-line) (evil-next-line))
+          :n :desc "Send buffer" "aa" (cmd! (julia-repl--send-string (format "include(\"%s\")" (buffer-file-name))))
+          :n :desc "Send beginning to here" "as" (cmd! (julia-repl--send-string (buffer-substring-no-properties 1 (point))))
+          :n :desc "Help on object" "hh" (cmd! (julia-repl--send-string (format "@doc %s" (thing-at-point 'symbol t))))
+          :n :desc "Print object" "rp" (cmd! (julia-repl--send-string (thing-at-point 'symbol t)))
+          :n :desc "Size of object" "rs" (cmd! (julia-repl--send-string (format "size(%s)" (thing-at-point 'symbol t))))
+          :n :desc "Type of object" "rt" (cmd! (julia-repl--send-string (format "typeof(%s)" (thing-at-point 'symbol t))))
           :n :desc "Send paragraph" "pp" #'ans/julia-repl-send-paragraph
-          :n :desc "Send paragraph and down" "pd" (lambda! (ans/julia-repl-send-paragraph) (evil-forward-paragraph))
+          :n :desc "Send paragraph and down" "pd" (cmd! (ans/julia-repl-send-paragraph) (evil-forward-paragraph))
           :n :desc "Send function" "ff" #'ans/julia-repl-send-function
-          :n :desc "Change to file directory" "cd" (lambda! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
-          :n :desc "Change up one directory" "c." (lambda! (julia-repl--send-string "cd(\"..\")"))
+          :n :desc "Change to file directory" "cd" (cmd! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
+          :n :desc "Change up one directory" "c." (cmd! (julia-repl--send-string "cd(\"..\")"))
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
 
 (use-package! evil-magit
