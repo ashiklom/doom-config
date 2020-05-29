@@ -152,9 +152,9 @@
             :v "=" #'ans/ess-tidy-region)
           :i "_" #'self-insert-command
           :i "M--" #'ess-insert-assign
-          :i "M-m" (lambda! (insert " %>%"))
-          :i "M-f" (lambda! (insert " %<-%"))
-          :i "C-'" (lambda! (insert "#'")))
+          :i "M-m" (cmd! (insert " %>%"))
+          :i "M-f" (cmd! (insert " %<-%"))
+          :i "C-'" (cmd! (insert "#'")))
 
         (:map ess-r-package-dev-map
           :g "C" #'ans/ess-compile-attributes)
