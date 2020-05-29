@@ -46,9 +46,19 @@
                          (concat "SBG Uncertainty" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "roses_2020-_project/-NEXT!"
+            (tags-todo "roses_2020_biodiversity-_project/-NEXT!"
                        ((org-agenda-overriding-header
-                         (concat "ROSES 2020" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                         (concat "ROSES 2020 Biodiversity" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "roses_2020_konings-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "ROSES 2020 Konings" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "roses_2020_poulter-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "ROSES 2020 Poulter" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "forte-_project/-NEXT!"
@@ -83,7 +93,10 @@
                         (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo
              (concat "-REFILE" "-config" "-reading_list" "-_project" "-_organization"
-                     "-sbg_uncertainty" "-roses_2020"
+                     "-sbg_uncertainty"
+                     "-roses_2020_biodiversity"
+                     "-roses_2020_konings"
+                     "-roses_2020_poulter"
                      "-forte" "-hector" "-rcmip_hector"
                      "-prospect_traits" "-edr_pda" "-pecan"
                      "/-NEXT!")
