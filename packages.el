@@ -24,3 +24,5 @@
 (package! company-stan)
 (package! eldoc-stan)
 (package! flycheck-stan)
+
+(package! websocket :recipe (:host github :repo "ahyatt/emacs-websocket" :branch "main"))
