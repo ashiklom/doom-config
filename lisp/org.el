@@ -46,9 +46,14 @@
                          (concat "SBG Uncertainty" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "roses_2020_biodiversity-_project/-NEXT!"
+            (tags-todo "roses_2020_smallsat-_project/-NEXT!"
                        ((org-agenda-overriding-header
-                         (concat "ROSES 2020 Biodiversity" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                         (concat "ROSES 2020 Smallsat" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
+                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
+                        (org-agenda-sorting-strategy '(priority-down))))
+            (tags-todo "roses_2020_nip-_project/-NEXT!"
+                       ((org-agenda-overriding-header
+                         (concat "ROSES 2020 NIP" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "roses_2020_konings-_project/-NEXT!"
@@ -94,9 +99,10 @@
             (tags-todo
              (concat "-REFILE" "-config" "-reading_list" "-_project" "-_organization"
                      "-sbg_uncertainty"
-                     "-roses_2020_biodiversity"
                      "-roses_2020_konings"
                      "-roses_2020_poulter"
+                     "-roses_2020_smallsat"
+                     "-roses_2020_nip"
                      "-forte" "-hector" "-rcmip_hector"
                      "-prospect_traits" "-edr_pda" "-pecan"
                      "/-NEXT!")
