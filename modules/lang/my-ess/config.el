@@ -28,6 +28,7 @@
 
   :config
   (setq-hook! 'ess-r-mode-hook comment-line-break-function nil)
+  (add-hook! 'ess-r-mode-hook 'electric-pair-local-mode)
   ;; Common ESS settings
   (setq ess-eval-visibly 'nowait
         ess-fill-calls-newlines t
