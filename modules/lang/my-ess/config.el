@@ -171,5 +171,4 @@
 
 (after! ess-r-mode
   ;; Seems be a problem with `:separate'?
-  ;; (apply #'set-company-backend! 'ess-r-mode (car ess-r-company-backends)))
-  (apply #'set-company-backend! 'ess-r-mode '((company-R-library company-R-args company-R-objects))))
+  (apply #'set-company-backend! 'ess-r-mode (butlast (car ess-r-company-backends))))
