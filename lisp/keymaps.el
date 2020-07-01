@@ -20,7 +20,6 @@
 
       :desc "Eval defun" :m "g RET" #'eval-defun
 
-      :i "C-l" #'+company/complete
       :i "C-0" (cmd! (sp-slurp-hybrid-sexp) (sp-end-of-sexp))
       :i "C-s" (cmd! (upcase-word -1))
       :i "s-k" #'evil-insert-digraph
