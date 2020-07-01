@@ -217,3 +217,8 @@
   (interactive)
   (require 'org-capture)
   (org-capture))
+
+(use-package! org-journal
+  :config
+  (map! :map doom-leader-notes-map
+        :desc "Open today's file" "jo" #'org-journal-open-current-journal-file))
