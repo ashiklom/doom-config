@@ -27,11 +27,6 @@
      (ess-R-fl-keyword:F&T)))
 
   :config
-  ;; Smartparens mode conflicts with electric pair mode
-  (add-hook! 'ess-mode-hook
-             'electric-pair-mode
-             'electric-indent-mode
-             'turn-off-smartparens-mode)
   (setq-hook! 'ess-r-mode-hook comment-line-break-function nil)
   ;; Common ESS settings
   (setq ess-eval-visibly 'nowait

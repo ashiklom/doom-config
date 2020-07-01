@@ -54,8 +54,6 @@
   :mode ((rx ".Rmd" string-end) . gfm-mode)
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
-  (add-hook! (markdown-mode gfm-mode) #'turn-off-smartparens-mode)
-  (setq-hook! (markdown-mode gfm-mode) electric-indent-chars nil)
   (map! (:map evil-markdown-mode-map
      :i "C-t" #'evil-shift-right-line
      :i "C-d" #'evil-shift-left-line
@@ -89,9 +87,6 @@
 
 ;; Automatically soft-wrap lines in text modes
 (add-hook! 'text-mode-hook :append '(visual-line-mode  turn-off-auto-fill))
-
-;; Disable smartparens mode in these modes because of interference with electric pairs mode
-(add-hook! '(nxml-mode-hook) (smartparens-mode -1))
 
 (put 'erase-buffer 'disabled nil)
 
