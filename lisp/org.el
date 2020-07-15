@@ -56,16 +56,6 @@
                          (concat "ROSES 2020 NIP" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
                         (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
                         (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "roses_2020_konings-_project/-NEXT!"
-                       ((org-agenda-overriding-header
-                         (concat "ROSES 2020 Konings" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
-                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
-                        (org-agenda-sorting-strategy '(priority-down))))
-            (tags-todo "roses_2020_poulter-_project/-NEXT!"
-                       ((org-agenda-overriding-header
-                         (concat "ROSES 2020 Poulter" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
-                        (org-agenda-todo-ignore-scheduled ans/hide-scheduled-tasks)
-                        (org-agenda-sorting-strategy '(priority-down))))
             (tags-todo "forte-_project/-NEXT!"
                        ((org-agenda-overriding-header
                          (concat "FoRTE" (if ans/hide-scheduled-tasks "" " (including scheduled)")))
@@ -99,8 +89,6 @@
             (tags-todo
              (concat "-REFILE" "-config" "-reading_list" "-_project" "-_organization"
                      "-sbg_uncertainty"
-                     "-roses_2020_konings"
-                     "-roses_2020_poulter"
                      "-roses_2020_smallsat"
                      "-roses_2020_nip"
                      "-forte" "-hector" "-rcmip_hector"
