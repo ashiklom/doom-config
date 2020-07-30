@@ -104,3 +104,8 @@
 
 ;; Focusing a frame should redraw it automatically
 (add-hook! 'focus-in-hook #'redraw-display)
+
+(use-package conda
+  :init
+  (setq conda-env-home-directory "/Users/ashiklom/opt/anaconda3"
+        conda-anaconda-home "/Users/ashiklom/opt/anaconda3"))
