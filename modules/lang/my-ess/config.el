@@ -27,6 +27,7 @@
      (ess-R-fl-keyword:F&T)))
 
   :config
+  (set-docsets! 'ess-r-mode "R")
   (setq-hook! 'ess-r-mode-hook comment-line-break-function nil)
   (add-hook! 'ess-r-mode-hook 'electric-pair-local-mode)
   ;; Common ESS settings
