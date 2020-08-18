@@ -196,7 +196,8 @@
     (org-map-entries (lambda () (delete-region (point-at-bol) (point-at-eol)))
                      "no_title"))
 
-  (add-hook 'org-export-before-processing-hook #'ans/org-remove-headlines))
+  (add-hook 'org-export-before-processing-hook #'ans/org-remove-headlines)
+  (remove-hook! 'org-mode-hook #'flyspell-mode))
 
 
 ;; Override counsel-org-capture. For some reason, just mapping directly fails.
