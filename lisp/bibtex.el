@@ -20,6 +20,7 @@
 (setq bibtex-completion-display-formats ans/bibtex-display-format)
 
 (use-package! ivy-bibtex
+  :commands ivy-bibtex
   :config
   (setq bibtex-completion-library-path ans/reference-pdfs
         bibtex-completion-notes-path ans/reference-notes

@@ -1,6 +1,8 @@
 ;;; lisp/ess.el -*- lexical-binding: t; -*-
 
 (use-package! ess
+  :mode (("\\.[Rr]\\'" . ess-r-mode)
+         ("\\.Rprofile\\'" . ess-r-mode))
   :custom
   (ess-R-font-lock-keywords
    '((ess-R-fl-keyword:fun-calls . t)
