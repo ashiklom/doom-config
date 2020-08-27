@@ -113,7 +113,8 @@
           :desc "Print symbol" :n "rp" #'ans/python-print-symbol-at-point
           :desc "Send paragraph" :n "pp" #'ans/python-send-paragraph
           :desc "Send paragraph" :n "pd" (cmd! (ans/python-send-paragraph) (next-line))
-          :desc "Send region" :v "ss" (cmd! (python-shell-send-string (buffer-substring-no-properties (mark) (point))))))
+          :desc "Send region" :v "ss" (cmd! (python-shell-send-string (buffer-substring-no-properties (mark) (point)))))
+        :desc "Restart Python" :n "C-c C-e r" #'pyvenv-restart-python)
 
       (:map inferior-python-mode-map
         :g "C-c C-z" #'evil-window-mru)
