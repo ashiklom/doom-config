@@ -86,7 +86,6 @@
        ;;gist              ; interacting with github gists
        lookup           ; helps you navigate your code and documentation
        lsp
-       macos             ; MacOS-specific commands
        (magit +forge)
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -110,9 +109,8 @@
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       ;; ess
-       my-ess               ; emacs speaks statistics
-       ;;fsharp           ; ML stands for Microsoft's Language
+       ess                 ; emacs speaks statistics
+       ;;fsharp            ; ML stands for Microsoft's Language
        ;;go                ; the hipster dialect
        ;;(haskell +intero) ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
@@ -167,6 +165,9 @@
        ;;irc              ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :os
+       macos
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
