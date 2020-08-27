@@ -40,11 +40,13 @@
 
 ;; Deadgrep
 (use-package! deadgrep
-  :commands (deadgrep)
+  :commands deadgrep
   :config
   (setq deadgrep-project-root-function
         (lambda ()
-          (if (projectile-project-p) (projectile-project-root) (deadgrep--project-root)))))
+          (if (projectile-project-p) (projectile-project-root) (deadgrep--project-root))))
+  (map! (:map deadgrep-edit-mode-map
+         :g "C-c C-c" #'deadgrep-mode)))
 
 (use-package! dtrt-indent
   :config
