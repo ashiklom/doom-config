@@ -13,6 +13,7 @@
 (package! simpleclip)
 
 (unpin! flycheck)
+(unpin! ess)
 
 (package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia"))
 (unpin! lsp-julia)
