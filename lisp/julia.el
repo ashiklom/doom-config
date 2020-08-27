@@ -9,6 +9,7 @@
 
 (use-package! julia-repl
   :config
+  (require 'vterm)
   (setq julia-repl-terminal-backend (make-julia-repl--buffer-vterm)))
 
 (use-package! julia-mode
