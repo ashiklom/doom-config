@@ -2,12 +2,13 @@
 
 ;; Julia configuration
 (use-package! lsp-julia
-  :init
-  (setq lsp-julia-default-environment "~/.julia/environments/v1.4"
-        lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver")
-  :hook ((julia-mode . lsp-deferred)))
+  :after julia-mode
+  :preface
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.5"
+        lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver"))
 
 (use-package! julia-repl
+  :after julia-mode
   :config
   (require 'vterm)
   (setq julia-repl-terminal-backend (make-julia-repl--buffer-vterm)))
