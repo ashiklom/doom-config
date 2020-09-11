@@ -69,7 +69,8 @@
         :desc "Show tab bar" "." #'+workspace/display)
 
       (:map doom-leader-notes-map
-        :desc "Org-capture" "c" #'ans/org-capture)
+       :desc "Org-capture" "c" #'ans/org-capture
+       :desc "Save all buffers" "w" #'org-save-all-org-buffers)
 
       (:map doom-leader-search-map
        :desc "Deadgrep" "r" #'deadgrep)
