@@ -159,7 +159,10 @@
           :n :desc "Send function" "ff" #'ans/julia-repl-send-function
           :n :desc "Change to file directory" "cd" (cmd! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
           :n :desc "Change up one directory" "c." (cmd! (julia-repl--send-string "cd(\"..\")"))
-          :v :desc "Send region" "ss" #'julia-repl-send-region-or-line)))
+          :v :desc "Send region" "ss" #'julia-repl-send-region-or-line))
+
+      (:map doom-leader-insert-map
+        :desc "Insert org heading" "RET" #'org-insert-heading))
 
 (use-package! evil-magit
   :config
