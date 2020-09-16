@@ -68,6 +68,7 @@
           :n "X " #'ess-interrupt
           :n "0" #'ans/ess-dev-off
           :n "!" #'ans/ess-toggle-debug
+          :n "=" (cmd! (ess-send-string (ess-get-process) "dev.size()"))
           :n "zp" #'ans/ess-usethis-package
           :n "rl" #'ans/ess-drake-loadd
           :n "rd" #'ans/ess-drake-readd
@@ -78,6 +79,7 @@
           :n "<backspace>" #'ans/ess-rm
           :n "bt" #'ans/ess-trace-back
           :n "bT" #'ans/ess-last-error
+          :v "rx" #'ans/ess-reprex-region
           :v "ss" #'ess-eval-region
           :v "sd" #'ess-eval-region-or-function-or-paragraph-and-step))
 
