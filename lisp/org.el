@@ -31,7 +31,13 @@
     (message "%s SCHEDULED/DEADLINE tasks" (if ans/hide-scheduled-tasks "Hide" "Show")))
   (setq org-agenda-span 21)
   (setq org-agenda-custom-commands
-        '(("o" "Agenda"
+        '(("o" "Task list"
+           ((agenda "" nil)
+            (todo "TODO|NEXT"
+                  ((org-agenda-files '("~/Dropbox/Notes/tasklist.org"))
+                   (org-agenda-sorting-strategy '(priority-down deadline-down scheduled-down))
+                   (org-agenda-prefix-format "%b %-12:c")))))
+          ("O" "Old agenda"
            ((agenda "" nil)
             (tags "REFILE"
                   ((org-agenda-overriding-header "Notes to Refile")
