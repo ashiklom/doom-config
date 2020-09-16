@@ -211,7 +211,9 @@
   :config
   (setq org-journal-file-format "%Y-%m-%d.org")
   (map! (:map doom-leader-notes-map
-         :desc "Open today's file" "jo" #'org-journal-open-current-journal-file)
+         :desc "Today's file" "jo" #'org-journal-open-current-journal-file
+         :desc "Date file" "jd" #'org-journal-new-date-entry
+         :desc "Calendar" "jc" #'org-goto-calendar)
         (:map org-journal-mode-map
          :desc "Next entry" "C-n" #'org-journal-next-entry
          :desc "Previous entry" "C-p" #'org-journal-previous-entry)))
