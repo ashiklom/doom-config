@@ -80,3 +80,9 @@
 (defun ans/hsplit-frame ()
   "Split window entirely below the current frame."
   (split-window (frame-root-window) nil 'below))
+
+(after! bibtex-completion
+  (defun bibtex-completion-format-citation-orgref (keys)
+    "Format org-ref citation references for keys in KEYS."
+    (s-join ", "
+            (--map (format "cite:%s" it) keys))))
