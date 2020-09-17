@@ -36,7 +36,7 @@
             (todo "TODO|NEXT"
                   ((org-agenda-files '("~/Dropbox/Notes/tasklist.org"))
                    (org-agenda-sorting-strategy '(priority-down deadline-down scheduled-down))
-                   (org-agenda-prefix-format "%b %-12:c")))))
+                   (org-agenda-prefix-format "%30b  ")))))
           ("O" "Old agenda"
            ((agenda "" nil)
             (tags "REFILE"
