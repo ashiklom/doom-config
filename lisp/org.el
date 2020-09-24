@@ -35,7 +35,7 @@
            ((agenda "" nil)
             (todo "TODO|NEXT"
                   ((org-agenda-files '("~/Dropbox/Notes/tasklist.org"))
-                   (org-agenda-sorting-strategy '(priority-down deadline-down scheduled-down))
+                   (org-agenda-sorting-strategy '(todo-state-down priority-down deadline-down scheduled-down))
                    (org-agenda-prefix-format "%30b  ")))))
           ("O" "Old agenda"
            ((agenda "" nil)
@@ -120,8 +120,8 @@
            (file+headline "~/Dropbox/Notes/computers.org" "TODO Emacs configuration")
            "** TODO %?" :clock-in t :clock-resume t)
           ("t" "TODO" entry
-           (file "~/Dropbox/Notes/unsorted.org")
-           "* TODO %?\nCaptured %U\n" :clock-in t :clock-keep t)
+           (file+headline "~/Dropbox/Notes/tasklist.org" "Other tasks")
+           "* TODO %?")
           ("l" "Later TODO" entry
            (file "~/Dropbox/Notes/unsorted.org")
            "* TODO %?\nCaptured %U\n" :clock-in t :clock-resume t)
