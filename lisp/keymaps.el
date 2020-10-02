@@ -106,9 +106,8 @@
         (:localleader
           :desc "Run Python" :n "rf" #'+python/open-ipython-repl
           :desc "Send defun" :n "ff" #'python-shell-send-defun
-          :desc "Send line" :n "l" (cmd! (python-shell-send-string (thing-at-point 'line t)))
-          :desc "Send line and down" :n "d" (cmd! (python-shell-send-string (thing-at-point 'line t)) (next-line))
-          :desc "Send statement" :n "L" #'python-shell-send-statement
+          :desc "Send statement" :n "l" #'python-shell-send-statement
+          :desc "Send line and down" :n "d" (cmd! (python-shell-send-statement) (next-line))
           :desc "Send buffer" :n "aa" #'python-shell-send-buffer
           :desc "Send start to current line" :n "as" (cmd! (python-shell-send-string (buffer-substring-no-properties 1 (point-at-bol))))
           :desc "Print symbol" :n "rp" #'ans/python-print-symbol-at-point
