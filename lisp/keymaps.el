@@ -161,7 +161,15 @@
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line))
 
       (:map doom-leader-insert-map
-        :desc "Insert org heading" "RET" #'org-insert-heading))
+       :desc "Insert org heading" "RET" #'org-insert-heading)
+
+      (:map smerge-mode-map
+       (:leader
+        :n :desc "Keep current" "m RET" #'smerge-keep-current
+        :n :desc "Next" "mn" #'smerge-next
+        :n :desc "Previous" "mp" #'smerge-prev))
+
+      )
 
 (use-package! evil-magit
   :config
