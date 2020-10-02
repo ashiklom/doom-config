@@ -26,7 +26,8 @@
         bibtex-completion-notes-path ans/reference-notes
         bibtex-completion-bibliography ans/reference-bibfile
         bibtex-autokey-titleword-length 15
-        org-ref-default-bibliography (list bibtex-completion-bibliography))
+        org-ref-default-bibliography (list bibtex-completion-bibliography)
+        org-ref-get-pdf-filename-function #'org-ref-get-pdf-filename-helm-bibtex)
   (setq bibtex-autokey-name-case-convert-function 'downcase
         bibtex-autokey-name-year-separator "_"
         bibtex-autokey-year-title-separator "_"
@@ -50,7 +51,9 @@
            ":DOI: ${doi}"
            ":URL: ${url}"
            ":END:"
-           "cite:${=key=}") "\n"))
+           "cite:${=key=}") "\n")
+        bibtex-completion-pdf-field "file"
+        bibtex-completion-pdf-open-function #'counsel-find-file-extern)
   (map! (:map biblio-selection-mode-map
           :desc "Add to bibfile" "I" #'ans/biblio-selection-insert-end-of-bibfile)
         (:map bibtex-mode-map
