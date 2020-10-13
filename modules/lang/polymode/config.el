@@ -10,7 +10,7 @@
     ("r" (ans/insert-chunk-and-enter "{r}") "R (knitr)")
     ("R" (ans/insert-chunk-and-enter "r") "R (plain)")
     ("-" ans/poly-split-chunk-here "Split")
-    ("SPC" polymode-toggle-chunk-narrowing))
+    ("SPC" polymode-toggle-chunk-narrowing "Toggle narrowing"))
   (map! :map poly-markdown-mode-map
         :localleader
         :n "P" #'ans/toggle-poly-markdown-mode
