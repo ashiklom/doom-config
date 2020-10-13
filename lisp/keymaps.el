@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/lisp/keymaps.el -*- lexical-binding: t; -*-
 
-(setq doom-localleader-key "\\")
+;; (setq doom-localleader-key "\\")
+(setq doom-localleader-key "SPC m")
 
 (map! :n "o" #'ans/evil-open-below
       :n "O" #'ans/evil-open-above
@@ -164,10 +165,10 @@
        :desc "Insert org heading" "RET" #'org-insert-heading)
 
       (:map smerge-mode-map
-       (:leader
-        :n :desc "Keep current" "m RET" #'smerge-keep-current
-        :n :desc "Next" "mn" #'smerge-next
-        :n :desc "Previous" "mp" #'smerge-prev))
+       (:localleader
+        :n :desc "Keep current" "RET" #'smerge-keep-current
+        :n :desc "Next" "n" #'smerge-next
+        :n :desc "Previous" "p" #'smerge-prev))
 
       )
 
