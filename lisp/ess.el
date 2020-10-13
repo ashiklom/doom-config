@@ -22,7 +22,7 @@
   (add-hook! 'ess-r-mode-hook
              #'electric-pair-local-mode
              #'outline-minor-mode)
-  (add-hook! '(ess-r-mode-hook inferior-ess-r-mode-hook) (eldoc-mode -1))
+  ;; (add-hook! '(ess-r-mode-hook inferior-ess-r-mode-hook) (eldoc-mode -1))
   (setq comint-move-point-for-output t
         ess-ask-for-ess-directory nil
         ess-directory-function #'projectile-project-root
@@ -34,6 +34,7 @@
               outline-heading-end-regexp "\n")
   (f-mkdir ess-history-directory)
   (put 'ess-r-package-dirs 'safe-local-variable #'listp)
+  (advice-add #'ess-eval-region :override #'ans/r-send-region-source)
   (map! (:map ess-mode-map
          :g "M-RET" nil
          (:localleader
@@ -50,6 +51,10 @@
          :i "M-f" (cmd! (insert " %<-%"))
          :i "C-'" (cmd! (insert "#'"))
          :n "g RET" #'ess-eval-line-and-step
+
+         (:localleader
+          "v" #'ess-r-package-dev-map
+          "p" nil)
 
          (:localleader
           :n "pp" #'ess-eval-paragraph
@@ -118,20 +123,22 @@
   "Run R expression in COMMAND-STRING using symbol-at-point."
   (ess-send-string
    (ess-get-process)
-   (format command-string (ess-symbol-at-point))))
+   (format command-string (ess-symbol-at-point))
+   'nowait))
 
 (defun ans/ess-reprex-region (start end venue)
   "Run the selection through `reprex::reprex', saving the output to the clipboard."
   (interactive "r\nsVenue (gh, so, ds, or r): ")
   (simpleclip-copy start end)
-  (ess-send-string (ess-get-process) (format "reprex::reprex(venue = '%s', show = FALSE)" venue)))
+  (ess-send-string (ess-get-process) (format "reprex::reprex(venue = '%s', show = FALSE)" venue)) 'nowait)
 
 (defun ans/ess-compile-attributes ()
   "Run ~Rcpp::compileAttributes~ on the package in the current directory."
   (interactive)
   (ess-send-string
    (ess-get-process)
-   "Rcpp::compileAttributes()"))
+   "Rcpp::compileAttributes()"
+   'nowait))
 
 (defun ans/ess-symbol-size ()
   "Run 'pryr::object_size' on symbol at point."
@@ -141,12 +148,12 @@
 (defun ans/ess-head ()
   "Run 'base::head' on symbol at point."
   (interactive)
-  (ess-send-string (ess-get-process) (format "head(%s)" (symbol-at-point))))
+  (ans/ess-do-with-symbol-at-point "head(%s)"))
 
 (defun ans/ess-tail ()
   "Run 'base::head' on symbol at point."
   (interactive)
-  (ess-send-string (ess-get-process) (format "tail(%s)" (symbol-at-point))))
+  (ans/ess-do-with-symbol-at-point "tail(%s)"))
 
 (defun ans/ess-toggle-debug ()
   "Toggle debugging function at point."
@@ -165,12 +172,13 @@
     (setq pkg (car (s-split "::" wrd)))
     (ess-send-string
      (ess-get-process)
-     (format "usethis::use_package('%s')" pkg))))
+     (format "usethis::use_package('%s')" pkg)
+     'nowait)))
 
 (defun ans/rmarkdown-render ()
   "Render the current R markdown document."
   (interactive)
-  (ess-send-string (ess-get-process) (format "rmarkdown::render('%s')" (buffer-file-name))))
+  (ess-send-string (ess-get-process) (format "rmarkdown::render('%s')" (buffer-file-name)) 'nowait))
 
 (defun ans/ess-glimpse-symbol ()
   "Run 'dplyr::glimpse' on symbol at point."
@@ -192,9 +200,7 @@
 (defun ans/ess-dev-off ()
   "Turn off the current graphics device."
   (interactive)
-  (ess-send-string
-   (ess-get-process)
-   "dev.off()"))
+  (ess-send-string (ess-get-process) "dev.off()" 'nowait))
 
 (defun ans/split-path-string ()
   "Split a single path string into a comma-separated list suitable for, e.g., `file.path'."
@@ -258,12 +264,12 @@
 (defun ans/ess-trace-back ()
   "Trace back the last error."
   (interactive)
-  (ess-send-string (ess-get-process) "rlang::last_error()"))
+  (ess-send-string (ess-get-process) "rlang::last_error()" 'nowait))
 
 (defun ans/ess-last-error ()
   "Run `rlang::last_error'."
   (interactive)
-  (ess-send-string (ess-get-process) "rlang::last_trace()"))
+  (ess-send-string (ess-get-process) "rlang::last_trace()") 'nowait)
 
 (defun ans/ess-close-if-not-running (window)
   "Close R popup WINDOW if R process is not running."
@@ -314,68 +320,13 @@
   (interactive)
   (ans/ess-do-with-symbol-at-point "invisible(drake::r_drake_build('%1$s')); drake::loadd('%1$s')"))
 
-(defun ans/r-send-region-source (start end)
+(defun ans/r-send-region-source (start end &optional vis message type)
   "Send region from START to END to R using source function."
   (interactive "r")
-  (let* ((code (buffer-substring-no-properties start end))
-         (nlines (count-lines start end)))
+  (let* ((code (buffer-substring-no-properties start end)))
     (ess-send-string
      (ess-get-process)
-     (format "
-.esstmpfile <- tempfile()
-.essstring <- readLines(con = stdin(), n = %d)
-%s
-writeLines(.essstring, .esstmpfile)
-source(.esstmpfile, echo = TRUE)
-" nlines code))))
-
-(defun ans/r-send-line ()
-  "Send current line to R."
-  (interactive)
-  (ans/r-send-region-source (line-beginning-position) (line-end-position)))
-
-(defun ans/r-send-buffer ()
-  "Send entire current buffer to R."
-  (interactive)
-  (ans/r-send-region-source (point-min) (point-max)))
-
-(defun ans/r-send-beginning-to-current-line ()
-  "Run from beginning of buffer through end of current line."
-  (interactive)
-  (ans/r-send-region-source (point-min) (line-end-position)))
-
-(defun ans/r-send-current-line-to-end ()
-  "Run from beginning of current line to end of buffer."
-  (interactive)
-  (ans/r-send-region-source (line-beginning-position) (point-max)))
-
-(defun ans/r-send-function-or-paragraph ()
-  "Send current function definition."
-  (interactive)
-  (save-excursion
-    (ess-mark-function-or-para)
-    (ans/r-send-region-source (point) (mark))
-    (deactivate-mark)))
-
-(defun ans/r-send-paragraph ()
-  "Send current paragraph."
-  (interactive)
-  (save-excursion
-    (mark-paragraph)
-    (ans/r-send-region-source (point) (mark))
-    (deactivate-mark)))
-
-(defun ans/r-send-paragraph-and-down ()
-  "Send current paragraph."
-  (interactive)
-  (mark-paragraph)
-  (ans/r-send-region-source (point) (mark))
-  (exchange-point-and-mark)
-  (deactivate-mark)
-  (ess-next-code-line))
-
-(defun ans/r-send-line-and-down ()
-  "Send current line to R and advance one line down."
-  (interactive)
-  (ans/r-send-line)
-  (ess-next-code-line))
+     (format "source(stdin(), echo = TRUE)
+%s" code)
+     vis message type)
+    (process-send-eof (ess-get-process))))
