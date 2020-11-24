@@ -170,6 +170,10 @@
         :n :desc "Next" "n" #'smerge-next
         :n :desc "Previous" "p" #'smerge-prev))
 
+      (:map markdown-mode-map
+       (:localleader
+        :n "f" markdown-mode-style-map))
+
       )
 
 (use-package! evil-magit
