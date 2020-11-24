@@ -74,7 +74,7 @@
           :n "X " #'ess-interrupt
           :n "0" #'ans/ess-dev-off
           :n "!" #'ans/ess-toggle-debug
-          :n "=" (cmd! (ess-send-string (ess-get-process) "dev.size()"))
+          :n "=" (cmd! (ess-send-string (ess-get-process) "dev.size()" 'nowait))
           :n "zp" #'ans/ess-usethis-package
           :n "rl" #'ans/ess-drake-loadd
           :n "rd" #'ans/ess-drake-readd
