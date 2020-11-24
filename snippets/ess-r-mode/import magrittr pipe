@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: import magrittr pipe
-# key: ipipe                            
+# key: magr
 # --
 library(magrittr, include.only = "%>%")
