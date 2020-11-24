@@ -13,7 +13,7 @@
       version-control t			; Version control backups
       make-backup-files t
       vc-make-backup-files t		; Backup files even if they are version controlled
-      auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
+      ;; auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
       delete-by-moving-to-trash nil)
 
 (setq display-line-numbers-type nil)
