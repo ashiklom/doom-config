@@ -117,3 +117,8 @@
 (after! magit
   :config
   (setq magit-delete-by-moving-to-trash nil))
+
+(after! deft
+  :config
+  (setq deft-default-extension "md"))
+
