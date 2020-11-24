@@ -122,3 +122,6 @@
   :config
   (setq deft-default-extension "md"))
 
+(after! ispell
+  :config
+  (setq ispell-dictionary "en"))
