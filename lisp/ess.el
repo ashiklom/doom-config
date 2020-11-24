@@ -306,14 +306,16 @@
       (ans/r-send-region-source beg end))))
 
 (defun ans/ess-drake-readd ()
-  "Run `drake::readd` on symbol at point."
+  "Run `targets::tar_read` or `drake::readd` on symbol at point."
   (interactive)
-  (ans/ess-do-with-symbol-at-point "drake::readd('%s')"))
+  (ans/ess-do-with-symbol-at-point
+   "if (file.exists('_targets.R')) targets::tar_read('%1$s') else drake::readd('%1$s')"))
 
 (defun ans/ess-drake-loadd ()
-  "Run `drake::loadd` on symbol at point."
+  "Run `targets::tar_load` or `drake::loadd` on symbol at point."
   (interactive)
-  (ans/ess-do-with-symbol-at-point "drake::loadd('%s')"))
+  (ans/ess-do-with-symbol-at-point
+   "if (file.exists('_targets.R')) targets::tar_load('%1$s') else drake::loadd('%1$s')"))
 
 (defun ans/ess-drake-build-target ()
   "Build drake target symbol at point."
