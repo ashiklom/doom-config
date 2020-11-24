@@ -174,6 +174,10 @@
        (:localleader
         :n "f" markdown-mode-style-map))
 
+      (:map csv-mode-map
+       :nm "]]" #'csv-forward-field
+       :nm "[[" #'csv-backward-field)
+
       )
 
 (use-package! evil-magit
