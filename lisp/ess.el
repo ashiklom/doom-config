@@ -87,7 +87,8 @@
           :n "bT" #'ans/ess-last-error
           :v "rx" #'ans/ess-reprex-region
           :v "ss" #'ess-eval-region
-          :v "sd" #'ess-eval-region-or-function-or-paragraph-and-step))
+          :v "sd" #'ess-eval-region-or-function-or-paragraph-and-step
+          :v "sc" #'ans/ess-eval-chunk))
 
         (:map ess-r-package-dev-map
          :g "C" #'ans/ess-compile-attributes)
@@ -100,6 +101,14 @@
       "*" (zero-or-more blank) "ess-output"
       (zero-or-more blank) "*")
   :vslot 3)
+
+(defun ans/ess-eval-chunk ()
+  "Evaluate current chunk"
+  (interactive)
+  (save-excursion
+    (polymode-mark-or-extend-chunk)
+    (ess-eval-region (point) (mark))
+    (deactivate-mark)))
 
 (defun ans/ess-tidy-region (start end)
   "Run formatr::tidy_source() on REGION."
