@@ -71,7 +71,8 @@
 
       (:map doom-leader-notes-map
        :desc "Org-capture" "c" #'ans/org-capture
-       :desc "Save all buffers" "w" #'org-save-all-org-buffers)
+       :desc "Save all buffers" "w" #'org-save-all-org-buffers
+       :desc "File headings" "H" #'ans/org-current-file-headings)
 
       (:map doom-leader-search-map
        :desc "Deadgrep" "r" #'deadgrep)

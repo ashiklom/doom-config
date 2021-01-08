@@ -29,6 +29,10 @@
     (when (equal major-mode 'org-agenda-mode)
       (org-agenda-redo))
     (message "%s SCHEDULED/DEADLINE tasks" (if ans/hide-scheduled-tasks "Hide" "Show")))
+  (defun ans/org-current-file-headings ()
+    (interactive)
+    (doom-completing-read-org-headings
+     "Jump to org headline: " (buffer-file-name)))
   (setq org-agenda-span 21)
   (setq org-agenda-custom-commands
         '(("o" "Task list"
