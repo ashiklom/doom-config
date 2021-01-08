@@ -16,6 +16,15 @@
       ;; auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
       delete-by-moving-to-trash nil)
 
+; Otherwise, autosave names become too long for long paths
+(defun ans/shorten-autosave-file-name (&rest args)
+  "Shorten file name if it's too long for the operating system."
+  (let ((buffer-file-name
+         (when (> (length (file-name-nondirectory buffer-file-name)) 255)
+           (substring buffer-file-name -254 nil))))
+    (apply args)))
+(advice-add 'make-auto-save-file-name :around #'ans/shorten-autosave-file-name)
+
 (setq display-line-numbers-type nil)
 
 ;; This is large to accommodate many ivy actions
