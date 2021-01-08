@@ -26,4 +26,6 @@
 (package! eldoc-stan)
 (package! flycheck-stan)
 
+(package! vimrc-mode)
+
 (package! websocket :recipe (:host github :repo "ahyatt/emacs-websocket" :branch "main"))

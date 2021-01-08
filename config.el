@@ -134,3 +134,6 @@
 (after! ispell
   :config
   (setq ispell-dictionary "en"))
+
+(use-package vimrc-mode
+  :mode "\\.vim\\(rc\\)?\\'")
