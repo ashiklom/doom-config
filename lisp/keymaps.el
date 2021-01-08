@@ -179,9 +179,7 @@
        :nm "]]" #'csv-forward-field
        :nm "[[" #'csv-backward-field)
 
-      )
+      (:map magit-mode-map
+       :nv "%" #'magit-worktree)
 
-(use-package! evil-magit
-  :config
-  (evil-define-key* '(normal visual) magit-mode-map
-    "%" #'magit-worktree))
+      )
