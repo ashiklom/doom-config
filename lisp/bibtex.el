@@ -52,21 +52,26 @@
            ":URL: ${url}"
            ":END:"
            "cite:${=key=}") "\n")
-        bibtex-completion-pdf-field "file"
+        ; This is a major performance bottleneck
+        bibtex-completion-pdf-field nil
         bibtex-completion-pdf-open-function #'counsel-find-file-extern)
   (map! (:map biblio-selection-mode-map
           :desc "Add to bibfile" "I" #'ans/biblio-selection-insert-end-of-bibfile)
-        (:map bibtex-mode-map
-          :prefix "C-c"
-          :desc "Insert DOI" "i" #'doi-insert-bibtex
-          :desc "Insert DOI from clipboard" "I" (lambda () (interactive) (doi-insert-bibtex (x-get-clipboard)))
-          :desc "Format entry" "l" (lambda () (interactive) (bibtex-clean-entry 4))
-          :desc "Edit notes" "n" (lambda () (interactive) (bibtex-completion-edit-notes (list (bibtex-completion-key-at-point))))
-          :desc "Open URL" "u" (lambda () (interactive (bibtex-completion-open-url-or-doi (list (bibtex-completion-key-at-point))))))
         (:map org-mode-map
           :localleader
           (:prefix-map ("\\" . "org-ref")
-            :desc "URL" "u" #'org-ref-open-url-at-point))))
+           :desc "URL" "u" #'org-ref-open-url-at-point))))
+
+(after! bibtex
+  :config
+  (map!
+   (:map bibtex-mode-map
+    :prefix "C-c"
+    :desc "Insert DOI" "i" #'doi-insert-bibtex
+    :desc "Insert DOI from clipboard" "I" (lambda () (interactive) (doi-insert-bibtex (x-get-clipboard)))
+    :desc "Format entry" "l" (lambda () (interactive) (bibtex-clean-entry 4))
+    :desc "Edit notes" "n" (lambda () (interactive) (bibtex-completion-edit-notes (list (bibtex-completion-key-at-point))))
+    :desc "Open URL" "u" (lambda () (interactive (bibtex-completion-open-url-or-doi (list (bibtex-completion-key-at-point))))))))
 
 (use-package! org-ref
   :when (featurep! :lang org)
