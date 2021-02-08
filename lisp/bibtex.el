@@ -63,7 +63,6 @@
            :desc "URL" "u" #'org-ref-open-url-at-point))))
 
 (after! bibtex
-  :config
   (map!
    (:map bibtex-mode-map
     :prefix "C-c"
