@@ -18,7 +18,7 @@
 (package! lsp-julia :recipe (:host github :repo "gdkrmr/lsp-julia"))
 (unpin! lsp-julia)
 
-(package! julia-repl :recipe (:host github :repo "tpapp/julia-repl" :branch "tp/terminal-backends"))
+(package! julia-repl :recipe (:host github :repo "tpapp/julia-repl"))
 (unpin! julia-repl)
 
 (package! stan-mode)
