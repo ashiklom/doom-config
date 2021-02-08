@@ -30,6 +30,7 @@
         ess-history-directory (expand-file-name "ess-history" doom-cache-dir)
         ess-roxy-str "#'"
         inferior-R-args "--no-save --no-restore")
+  (setq flycheck-lintr-linters "with_defaults(line_length_linter(120), object_name_linter = NULL)")
   (setq-local outline-regexp "###+ "
               outline-heading-end-regexp "\n")
   (f-mkdir ess-history-directory)
@@ -217,7 +218,7 @@
   (let* (path bounds start end path-insert)
     ;; Use sexp here to include quotes
     (setq path (thing-at-point 'filename t))
-    (if (not path) (return nil))
+    (if (not path) (cl-return nil))
     (setq bounds (bounds-of-thing-at-point 'filename))
     (setq start (- (car bounds) 1))
     (setq end (+ (cdr bounds) 1))
@@ -242,7 +243,7 @@
     (setq end (save-excursion (evil-forward-word-end) (+ (point) 1)))
     (setq thing (buffer-substring-no-properties start end))
     (setq thing-split (s-split "\\$" thing))
-    (if (not (length thing-split)) (return nil))
+    (if (not (length thing-split)) (cl-return nil))
     (setq thing-car (car thing-split))
     (setq thing-cdr (cdr thing-split))
     (setq thing-cdr-q (mapcar (lambda (s) (s-wrap s "\"")) thing-cdr))
