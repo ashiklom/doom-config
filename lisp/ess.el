@@ -20,7 +20,7 @@
      (ess-R-fl-keyword:F&T)))
   :config
   (add-hook! 'ess-r-mode-hook
-             ;; #'electric-pair-local-mode
+             #'electric-pair-local-mode
              #'outline-minor-mode)
   ;; (add-hook! '(ess-r-mode-hook inferior-ess-r-mode-hook) (eldoc-mode -1))
   (setq comint-move-point-for-output t
