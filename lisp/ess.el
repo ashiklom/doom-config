@@ -72,6 +72,7 @@
           :n "rH" #'ans/ess-head
           :n "rT" #'ans/ess-tail
           :n "kr" #'ans/rmarkdown-render
+          :n "kk" #'ans/knitr-knit
           :n "X " #'ess-interrupt
           :n "0" #'ans/ess-dev-off
           :n "!" #'ans/ess-toggle-debug
@@ -189,6 +190,11 @@
   "Render the current R markdown document."
   (interactive)
   (ess-send-string (ess-get-process) (format "rmarkdown::render('%s')" (buffer-file-name)) 'nowait))
+
+(defun ans/knitr-knit ()
+  "Knit the current R markdown document."
+  (interactive)
+  (ess-send-string (ess-get-process) (format "knitr::knit('%s')" (buffer-file-name)) 'nowait))
 
 (defun ans/ess-glimpse-symbol ()
   "Run 'dplyr::glimpse' on symbol at point."
