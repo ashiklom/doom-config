@@ -25,7 +25,9 @@
 (defun iterm-send-string (str)
   "Send STR to a running iTerm instance."
   (let* ((tf (make-temp-file "iterm-"))
-         (str (iterm-handle-newline str)))
+         (str (iterm-handle-newline str))
+         (default-directory (if (file-remote-p default-directory)
+                                "~" default_directory)))
     (with-temp-file tf
       (insert str))
     (shell-command (format "sendtoiterm %s" tf))))

@@ -139,10 +139,13 @@
         :nvm "j" #'evil-next-visual-line
         :nvm "k" #'evil-previous-visual-line)
 
+      (:map LaTeX-mode-map
+       (:localleader
+        :desc "Refresh reftex" :n "r" #'reftex-parse-all))
+
       (:map evil-org-mode-map
         :n "z n" #'org-toggle-narrow-to-subtree)
 
-      ;; Using iTerm
       (:map julia-mode-map
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
@@ -158,9 +161,20 @@
           :n :desc "Send paragraph" "pp" #'ans/julia-repl-send-paragraph
           :n :desc "Send paragraph and down" "pd" (cmd! (ans/julia-repl-send-paragraph) (evil-forward-paragraph))
           :n :desc "Send function" "ff" #'ans/julia-repl-send-function
-          :n :desc "Change to file directory" "cd" (cmd! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
+          :n :desc "Change to file directory" "cd" #'ans/julia-cd
+          :n :desc "Change to file directory" "cD" (cmd! (julia-repl--send-string (format "cd(\"%s\")" (file-name-directory (buffer-file-name)))))
           :n :desc "Change up one directory" "c." (cmd! (julia-repl--send-string "cd(\"..\")"))
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line))
+
+      ;; Send commands using Iterm
+      (:map (julia-mode-map ess-r-mode-map)
+       (:localleader
+        (:prefix-map ("m" . "Using Iterm")
+         :n :desc "Send line" "l" #'iterm-send-line
+         :n :desc "Send line and down" "d" (cmd! (iterm-send-line) (evil-next-line))
+         :n :desc "Send paragraph" "pp" #'iterm-send-paragraph
+         :n :desc "Send object" "rp" (cmd! (iterm-send-string (thing-at-point 'symbol t)))
+         :v :desc "Send region" "ss" #'iterm-send-region)))
 
       (:map doom-leader-insert-map
        :desc "Insert org heading" "RET" #'org-insert-heading)

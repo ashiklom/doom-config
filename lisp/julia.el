@@ -38,3 +38,14 @@
     (mark-defun)
     (julia-repl-send-region-or-line)
     (deactivate-mark)))
+
+(defun ans/julia-cd ()
+  "Set current directory"
+  (interactive)
+  (julia-repl--send-string
+   (format
+    "cd(\"%s\")"
+    (if (projectile-project-p)
+        (projectile-project-root)
+      (file-name-directory (buffer-file-name)))))
+  )
