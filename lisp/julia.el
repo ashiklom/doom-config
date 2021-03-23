@@ -17,6 +17,9 @@
   :mode "\\.jl\\'"
   :config
   (use-package vterm)
+  (setq julia-repl-executable-records
+        '((default "julia")
+          (adapt "~/.local/bin/adapt-julia" :basedir "~")))
   (set-popup-rule! "\\*julia.*\\*$"
     :height 0.3
     :quit nil
