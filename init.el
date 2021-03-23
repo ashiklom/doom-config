@@ -8,6 +8,7 @@
 ;; More information about these modules (and what flags they support) can be
 ;; found in modules/README.org.
 
+(setq comp-speed 2)
 (setq custom-file "~/.emacs.d/.local/custom.el")
 
 (doom! :input

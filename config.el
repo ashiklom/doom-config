@@ -64,7 +64,8 @@
                                                    '(ess-r-mode default ess-indent-offset))))
 
 (use-package! markdown-mode
-  :mode ((rx ".Rmd" string-end) . gfm-mode)
+  :mode (((rx ".Rmd" string-end) . gfm-mode)
+         ((rx ".md" string-end) . gfm-mode))
   :config
   (remove-hook! 'markdown-mode-hook 'auto-fill-mode)
   (map! (:map evil-markdown-mode-map
