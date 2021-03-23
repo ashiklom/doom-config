@@ -115,15 +115,8 @@
   :config
   (simpleclip-mode))
 
-;; Use company-prescient-mode globally, but not for all company-mode
-;; (remove-hook! 'company-mode-hook #'company-prescient-mode)
-;; (add-hook! 'global-company-mode-hook #'company-prescient-mode)
-
 ;; CSV mode should not wrap
 (add-hook! 'csv-mode-hook (toggle-truncate-lines 1))
-
-;; Focusing a frame should redraw it automatically
-;; (add-hook! 'focus-in-hook #'redraw-display)
 
 (use-package conda
   :init

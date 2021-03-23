@@ -5,7 +5,6 @@
   :after julia-mode
   :preface
   (setq lsp-julia-default-environment "~/.julia/environments/v1.5"
-        lsp-julia-package-dir "~/.emacs.d/.local/straight/repos/lsp-julia/languageserver"
         lsp-enable-folding t))
 
 (use-package! julia-repl
