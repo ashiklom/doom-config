@@ -16,6 +16,12 @@
       ;; auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
       delete-by-moving-to-trash nil)
 
+;; (let ((font (font-spec :family "JuliaMono" :size 12)))
+;;   (if (find-find font)
+;;       (progn
+;;         (setq doom-font ans/my-font)
+;;         (doom/reload-font))))
+
 ; Otherwise, autosave names become too long for long paths
 (defun ans/shorten-autosave-file-name (&rest args)
   "Shorten file name if it's too long for the operating system."
