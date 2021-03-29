@@ -27,7 +27,7 @@
   (let* ((tf (make-temp-file "iterm-"))
          (str (iterm-handle-newline str))
          (default-directory (if (file-remote-p default-directory)
-                                "~" default_directory)))
+                                "~" default-directory)))
     (with-temp-file tf
       (insert str))
     (shell-command (format "sendtoiterm %s" tf))))
