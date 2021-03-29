@@ -40,7 +40,7 @@
         :desc "Toggle smartparens" ")" #'smartparens-mode
         :desc "Toggle visual lines" "$" #'visual-line-mode
         "x" nil
-        (:prefix-map ("x" . "scratch")
+        (:prefix ("x" . "scratch")
           :desc "Fundamental" "x" #'doom/open-scratch-buffer
           :desc "R" "r" (cmd! (doom/open-scratch-buffer) (R-mode))
           :desc "Lisp interaction" "l" (cmd! (doom/open-scratch-buffer) (lisp-interaction-mode))
@@ -167,9 +167,9 @@
           :v :desc "Send region" "ss" #'julia-repl-send-region-or-line))
 
       ;; Send commands using Iterm
-      (:map (julia-mode-map ess-r-mode-map)
+      (:map (julia-mode-map ess-r-mode-map python-mode-map)
        (:localleader
-        (:prefix-map ("m" . "Using Iterm")
+        (:prefix ("m" . "Using Iterm")
          :n :desc "Send line" "l" #'iterm-send-line
          :n :desc "Send line and down" "d" (cmd! (iterm-send-line) (evil-next-line))
          :n :desc "Send paragraph" "pp" #'iterm-send-paragraph
