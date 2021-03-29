@@ -17,6 +17,8 @@
   :mode "\\.jl\\'"
   :config
   (use-package vterm)
+  (add-hook! 'julia-mode-hook
+             #'electric-pair-local-mode)
   (setq julia-repl-executable-records
         '((default "julia")
           (adapt "~/.local/bin/adapt-julia" :basedir "~")))

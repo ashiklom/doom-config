@@ -43,6 +43,8 @@
 (evil-ex-define-cmd "rename" 'rename-this-buffer-and-file)
 (evil-ex-define-cmd "dkill" #'ans/delete-file-and-buffer)
 
+(electric-pair-mode -1)
+
 (load! "lisp/utils")
 (load! "lisp/keymaps")
 (load! "lisp/org")
