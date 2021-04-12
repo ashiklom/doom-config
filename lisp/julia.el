@@ -4,14 +4,11 @@
 (use-package! lsp-julia
   :after julia-mode
   :preface
-  (setq lsp-julia-default-environment "~/.julia/environments/v1.5"
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.6"
         lsp-enable-folding t))
 
 (use-package! julia-repl
-  :after julia-mode
-  :config
-  (require 'vterm)
-  (setq julia-repl-terminal-backend (make-julia-repl--buffer-vterm)))
+  :after julia-mode)
 
 (use-package! julia-mode
   :mode "\\.jl\\'"

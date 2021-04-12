@@ -18,6 +18,12 @@
 (package! julia-repl :recipe (:host github :repo "tpapp/julia-repl"))
 (unpin! julia-repl)
 
+;; This doesn't symlink the directory, but rather the files inside it.
+;; Therefore, may need to manually re-symlink `languageserver' to the
+;; `straight/repos' directory.
+(package! lsp-julia :recipe (:host github :repo "non-Jedi/lsp-julia" :files (:defaults "languageserver")))
+(unpin! lsp-julia)
+
 (package! stan-mode)
 (package! company-stan)
 (package! eldoc-stan)

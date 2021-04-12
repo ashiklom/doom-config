@@ -147,6 +147,7 @@
         :n "z n" #'org-toggle-narrow-to-subtree)
 
       (:map julia-mode-map
+       :i :desc "Insert pipe" "M-m" (cmd! (insert " |>"))
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
           :n :desc "Quit" "rq" (cmd! (julia-repl--send-string "exit()"))
