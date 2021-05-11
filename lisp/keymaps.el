@@ -148,6 +148,7 @@
 
       (:map julia-mode-map
        :i :desc "Insert pipe" "M-m" (cmd! (insert " |>"))
+       :i :desc "Insert arrow" "M--" (cmd! (insert "->"))
         (:localleader
           :n :desc "Start julia" "rf" #'julia-repl
           :n :desc "Quit" "rq" (cmd! (julia-repl--send-string "exit()"))

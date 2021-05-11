@@ -5,15 +5,24 @@
   :after julia-mode
   :preface
   (setq lsp-julia-default-environment "~/.julia/environments/v1.6"
+        lsp-julia-package-dir "~/src/languageserver"
         lsp-enable-folding t))
 
+(use-package vterm
+  :after-call (julia-repl)
+    :config
+    (map! :map vterm-mode-map
+          :i "C-c C-q" #'evil-collection-vterm-toggle-send-escape
+          :i "C-c C-z" #'evil-window-mru))
+
 (use-package! julia-repl
-  :after julia-mode)
+  :after julia-mode
+  :config
+  (julia-repl-set-terminal-backend 'vterm))
 
 (use-package! julia-mode
   :mode "\\.jl\\'"
   :config
-  (use-package vterm)
   (add-hook! 'julia-mode-hook
              #'electric-pair-local-mode)
   (setq julia-repl-executable-records
