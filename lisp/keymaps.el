@@ -199,4 +199,8 @@
       (:map magit-mode-map
        :nv "%" #'magit-worktree)
 
+      (:map image-mode-map
+       :nv "+" #'image-increase-size
+       :nv "-" #'image-decrease-size)
+
       )
