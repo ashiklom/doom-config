@@ -8,13 +8,19 @@
 (defvar ans/dropbox-dir (file-name-as-directory "~/Dropbox")
   "Absolute path to Dropbox.")
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/.local/backups"))
+(setq make-backup-files t
+      backup-directory-alist `(("." . ,(expand-file-name "~/.emacs.d/.local/backups")))
       delete-old-versions -1		; Don't delete old versions
       version-control t			; Version control backups
-      make-backup-files t
       vc-make-backup-files t		; Backup files even if they are version controlled
       ;; auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
       delete-by-moving-to-trash nil)
+
+;; Disable backups for Tramp
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))
+
+;; (customize-set-variable 'tramp-backup-directory-alist backup-directory-alist)
 
 ;; (let ((font (font-spec :family "JuliaMono" :size 12)))
 ;;   (if (find-find font)
