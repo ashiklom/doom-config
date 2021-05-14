@@ -176,6 +176,7 @@
          :n :desc "Send line and down" "d" (cmd! (iterm-send-line) (evil-next-line))
          :n :desc "Send paragraph" "pp" #'iterm-send-paragraph
          :n :desc "Send object" "rp" (cmd! (iterm-send-string (thing-at-point 'symbol t)))
+         :n :desc "Send buffer" "aa" (cmd! (iterm-send-string (buffer-substring-no-properties (buffer-end -1) (buffer-end 1))))
          :v :desc "Send region" "ss" #'iterm-send-region)))
 
       (:map doom-leader-insert-map
