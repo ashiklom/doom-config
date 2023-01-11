@@ -39,6 +39,8 @@
         :desc "Redraw display" "&" #'redraw-display
         :desc "Toggle smartparens" ")" #'smartparens-mode
         :desc "Toggle visual lines" "$" #'visual-line-mode
+        :desc "Toggle Eldoc mode" :n "@" #'eldoc-mode
+        :desc "Toggle autocomplete" :n "#" #'+company/toggle-auto-completion
         "x" nil
         (:prefix ("x" . "scratch")
           :desc "Fundamental" "x" #'doom/open-scratch-buffer

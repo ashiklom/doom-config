@@ -1,5 +1,19 @@
 ;;; ~/.doom.d/lisp/python.el -*- lexical-binding: t; -*-
 
+;; (add-hook! anaconda-eldoc-mode :append #'ans/python-tramp-config)
+
+;; (defun ans/python-tramp-config ()
+;;   "Python configuration for Tramp."
+;;   (if (file-remote-p default-directory)
+;;       (progn
+;;         ;; Disable eldoc mode (doesn't work well with tramp)
+;;         (message "TRAMP mode detected. Disabling eldoc and autocomplete.")
+;;         (setq-local eldoc-mode nil)
+;;         ;; Turn off autocompletion
+;;         (setq-local company-idle-delay nil))))
+
+(add-hook! python-mode #'turn-off-smartparens-mode #'electric-pair-local-mode)
+
 (defun ans/python-print-symbol-at-point ()
   "Print symbol at point"
   (interactive)

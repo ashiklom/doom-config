@@ -20,6 +20,7 @@
      (ess-R-fl-keyword:F&T)))
   :config
   (add-hook! 'ess-r-mode-hook
+             #'turn-off-smartparens-mode
              #'electric-pair-local-mode
              #'outline-minor-mode)
   ;; (add-hook! '(ess-r-mode-hook inferior-ess-r-mode-hook) (eldoc-mode -1))

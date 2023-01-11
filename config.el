@@ -9,33 +9,20 @@
   "Absolute path to Dropbox.")
 
 (setq make-backup-files t
-      backup-directory-alist `(("." . ,(expand-file-name "~/.emacs.d/.local/backups")))
-      delete-old-versions -1		; Don't delete old versions
-      version-control t			; Version control backups
+      ;; Save TRAMP file backups locally
+      backup-directory-alist (list (cons "." (concat doom-cache-dir "backup/"))
+                                   (cons tramp-file-name-regexp (concat doom-cache-dir "backup/")))
+      tramp-backup-directory-alist nil
       vc-make-backup-files t		; Backup files even if they are version controlled
-      ;; auto-save-file-name-transforms '((".*" "~/.emacs.d/.local/auto-save-list/" t)) ; Save file name changes
+      version-control t		; Version control backups
+      delete-old-versions -1		; Don't delete old versions
       delete-by-moving-to-trash nil)
-
-;; Disable backups for Tramp
-(add-to-list 'backup-directory-alist
-             (cons tramp-file-name-regexp nil))
-
-;; (customize-set-variable 'tramp-backup-directory-alist backup-directory-alist)
 
 ;; (let ((font (font-spec :family "JuliaMono" :size 12)))
 ;;   (if (find-find font)
 ;;       (progn
 ;;         (setq doom-font ans/my-font)
 ;;         (doom/reload-font))))
-
-; Otherwise, autosave names become too long for long paths
-(defun ans/shorten-autosave-file-name (&rest args)
-  "Shorten file name if it's too long for the operating system."
-  (let ((buffer-file-name
-         (when (> (length (file-name-nondirectory buffer-file-name)) 255)
-           (substring buffer-file-name -254 nil))))
-    (apply args)))
-(advice-add 'make-auto-save-file-name :around #'ans/shorten-autosave-file-name)
 
 (setq display-line-numbers-type nil)
 

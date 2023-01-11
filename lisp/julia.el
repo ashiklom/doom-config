@@ -24,6 +24,7 @@
   :mode "\\.jl\\'"
   :config
   (add-hook! 'julia-mode-hook
+             #'turn-off-smartparens-mode
              #'electric-pair-local-mode)
   (setq julia-repl-executable-records
         '((default "julia")
